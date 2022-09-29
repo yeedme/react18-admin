@@ -8,6 +8,7 @@ export const slice = createSlice({
     },
     reducers: {
         online: state => {
+            console.log("online");
             state.value =true;
         },
         offline: state => {
