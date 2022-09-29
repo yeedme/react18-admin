@@ -1,0 +1,46 @@
+.LoginPage{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(48, 78, 121);
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+@input-border-bottom: 2px solid rgb(255, 255, 255);
+.LoginForm{
+    height: 600px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;  
+    justify-content: space-between;
+    h2{
+        color: white;
+    }
+    h3{
+        color: white;
+    }
+    .Login-input:focus{
+        outline:none;
+    }
+
+    .Login-input{
+        border: none;
+        background-color: transparent;
+        border-bottom:@input-border-bottom;
+        color: white;
+        width: 100%;
+    }
+    .Login-Icon-box{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        
+    }
+    .passwordIcon{
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer
+    }
+
+}
