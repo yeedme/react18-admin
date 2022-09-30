@@ -5,7 +5,8 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import store from "./Store/store";
 import { Provider } from "react-redux";
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css'
+import 'animate.css';
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>

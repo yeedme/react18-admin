@@ -1,16 +1,15 @@
-import Admin from "../compontent/Admin";
-import Normal from "../compontent/Normal";
+import  Home  from "../compontent/home/Home";
+import  Transit  from "../pages/Transit";
 import Login from "../Login/Login";
 const routers=[{
-    path:'/admin',
-    element:<Admin/>,
+    path:"/transit",
+    element:<Transit/>,
     children:[{
-            path:'normal',
-            element:<Normal/>
-        
+        path:"home",
+        element:<Home/>
     }]
 },
-,{
+{
     path:'/login',
     element:<Login/>
 },{

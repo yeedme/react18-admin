@@ -1,5 +1,5 @@
 import axios from "axios";
-
+//封装 
 const BASE_URL = "http://localhost:8082";
 function axiosGet(options) {
   axios

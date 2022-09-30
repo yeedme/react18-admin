@@ -5,11 +5,14 @@ import { Button, message } from "antd";
 import { EyeOutlined } from "@ant-design/icons";
 import  {online} from"../Store/LoginStatus"
 import  { useDispatch} from "react-redux" 
+import { useNavigate } from "react-router-dom"; 
 //登入页面
+
 export default function Login() {
   const dispatch=useDispatch()
   const [userName, setuserName] = useState(""); //不写初始值 就是不受控制组件   userName=undefined 那么这个组件就会受控组件变成非受控组件（控制台报错） input初始值不能是undefind
   const [password, setPassword] = useState("");
+  const navigate=useNavigate();
   // const Getdata=async(id,password) =>{
   //   const date=await axiosGetLoginStatus(id,password);
   //   console.log(date);
@@ -30,11 +33,19 @@ export default function Login() {
   //发送数据去后台如果是用户名和密码正确就跳转路由 （路由拦截）
   let checkLogin = async (id, name) => {
     let results = await axiosGetLoginStatus(id, name);
-     if(results=='admin'){
+     if(results==='admin'){
        dispatch( online() );
+       navigate('/transit');
+       setuserName('');
+       setPassword('');
+     }
+     else{
+      message.error("account error");
+      setuserName('');
+      setPassword('');
      }
   };
-
+  //输入框验证 
   const commit = () => {
     if (userName && password) {
       checkLogin(userName, password);
@@ -48,7 +59,7 @@ export default function Login() {
   };
   return (
     <div className="LoginPage">
-      <div className="LoginForm">
+      <div className="LoginForm animate__animated animate__fadeInDown">
         <div>
           <h2>login</h2>
           <h3>Your account</h3>
@@ -92,8 +103,9 @@ export default function Login() {
         </div>
 
         <Button type="primary" onClick={commit}>
-          Display normal message
+            Login
         </Button>
+        
       </div>
     </div>
   );
