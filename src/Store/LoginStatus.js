@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const slice = createSlice({
     name: 'LoginStatus',
     initialState: {
-        value: false,  //false：没有登入成功 true：登入成功 
+        value: false,  //false：没有登入成功 true：登入成功  
     },
     reducers: {
         online: state => {

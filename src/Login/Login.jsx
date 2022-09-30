@@ -13,22 +13,11 @@ export default function Login() {
   const [userName, setuserName] = useState(""); //不写初始值 就是不受控制组件   userName=undefined 那么这个组件就会受控组件变成非受控组件（控制台报错） input初始值不能是undefind
   const [password, setPassword] = useState("");
   const navigate=useNavigate();
-  // const Getdata=async(id,password) =>{
-  //   const date=await axiosGetLoginStatus(id,password);
-  //   console.log(date);
-  //   setuserName('');
-  //   setPassword('');
-  // }
-  // function commit(){
-  //   console.log(userName+'-'+password);
-  //   Getdata(userName,password);
-
-  // }
 
   const [inputType, setInputTyp] = useState("password");
   //显示密码
   const ChangeInputType = () => {
-    inputType == "password" ? setInputTyp("text") : setInputTyp("password");
+    inputType === "password" ? setInputTyp("text") : setInputTyp("password");
   };
   //发送数据去后台如果是用户名和密码正确就跳转路由 （路由拦截）
   let checkLogin = async (id, name) => {

@@ -11,6 +11,6 @@ export default function Transit() {
         status===true?navigate('home'):navigate('/login');
     },[])
   return (
-    <div>TransitTransitTransitTransit<Outlet/></div>
+    <div><Outlet/></div>
   )
 }
