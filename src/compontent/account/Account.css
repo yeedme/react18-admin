@@ -1,0 +1,12 @@
+.Account-Content{
+
+    width: 100%;
+    line-height: 0%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.Account-options{
+    display: flex;
+    justify-content: space-around;
+}
