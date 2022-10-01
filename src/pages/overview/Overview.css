@@ -1,0 +1,20 @@
+.OverView-Content {
+  width: 100%;
+  height: 100%;
+  background-color: antiquewhite;
+}
+.OverView-Content .DataCardList {
+  width: 100%;
+  min-width: 400px;
+  justify-content:space-around;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+.OverView-Content .DataCard {
+  width: 300px;
+  height: 200px;
+  background-color: gray;
+  margin: 5px;
+}
