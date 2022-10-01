@@ -14,11 +14,11 @@ function axiosGet(options) {
 
  function axiosGetLoginStatus(id, password) {
   let account = new URLSearchParams();
-  account.append("id", id);
-  account.append("password", password);
+  account.append("UserName", id);
+  account.append("Password", password);
   return new Promise((resolve, reject) => {
     axiosGet({
-      url: `/test?${account}`,
+      url: `/login?${account}`,
       success(data) {
         resolve(data);
       },

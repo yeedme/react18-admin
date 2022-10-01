@@ -22,7 +22,7 @@ export default function Login() {
   //发送数据去后台如果是用户名和密码正确就跳转路由 （路由拦截）
   let checkLogin = async (id, name) => {
     let results = await axiosGetLoginStatus(id, name);
-     if(results==='admin'){
+     if(results==='success'){
        dispatch( online() );
        navigate('/transit');
        setuserName('');
