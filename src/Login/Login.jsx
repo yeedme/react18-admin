@@ -3,7 +3,7 @@ import { axiosGetLoginStatus } from "../utils/http";
 import "./Login.css";
 import { Button, message } from "antd";
 import { EyeOutlined } from "@ant-design/icons";
-import  {online} from"../Store/LoginStatus"
+import  {online,setRealName} from"../Store/LoginStatus"
 import  { useDispatch} from "react-redux" 
 import { useNavigate } from "react-router-dom"; 
 //登入页面
@@ -22,8 +22,10 @@ export default function Login() {
   //发送数据去后台如果是用户名和密码正确就跳转路由 （路由拦截）
   let checkLogin = async (id, name) => {
     let results = await axiosGetLoginStatus(id, name);
-     if(results==='success'){
+    console.log(results.data[0].RealName);
+     if(results.message==="success"){
        dispatch( online() );
+       dispatch(setRealName(results.data[0].RealName))
        navigate('/transit');
        setuserName('');
        setPassword('');

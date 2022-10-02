@@ -4,7 +4,8 @@ import { createSlice } from '@reduxjs/toolkit';
 export const slice = createSlice({
     name: 'LoginStatus',
     initialState: {
-        value: false,  //false：没有登入成功 true：登入成功  
+        value: false,
+        RealName:""  //false：没有登入成功 true：登入成功  
     },
     reducers: {
         online: state => {
@@ -15,11 +16,16 @@ export const slice = createSlice({
             console.log("状态改为offline");
             state.value = false;
         },
+        setRealName: (state,action) => {    
+            console.log(state,action);      
+            state.RealName = action.payload;
+        },
 
     },
 });
 
-export const { online, offline } = slice.actions;
+export const { online, offline,setRealName } = slice.actions;
 
 export const selectStatus = state => state.LoginStatus.value;
+export const RealName = state => state.LoginStatus.RealName;
 export default slice.reducer;

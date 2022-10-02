@@ -1,0 +1,29 @@
+.DataCard {
+  margin: 5px;
+  width: 285px;
+  height: 180px;
+  padding: 15px;
+  background-color: white;
+  cursor: pointer;
+}
+.DataCard .title {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+.DataCard .number {
+  font-size: 35px;
+  margin-bottom: 0px;
+}
+.DataCard .details {
+  font-size: 20px;
+}
+.DataCard:hover {
+  background-color: #3b687e;
+  color: white;
+}
+.DataCard:hover .number {
+  color: white;
+}
+.DataCard:hover .trendColor-raise {
+  color: #71db71;
+}

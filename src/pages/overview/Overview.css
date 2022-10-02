@@ -8,21 +8,3 @@
   justify-content: center;
   flex-wrap: wrap;
 }
-.OverView-Content .DataCard {
-  margin: 5px;
-  width: 285px;
-  height: 180px;
-  padding: 15px;
-  background-color: white;
-}
-.OverView-Content .DataCard .title {
-  font-size: 22px;
-  margin-bottom: 15px;
-}
-.OverView-Content .DataCard .number {
-  font-size: 35px;
-  margin-bottom: 0px;
-}
-.OverView-Content .DataCard .details {
-  font-size: 20px;
-}

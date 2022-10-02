@@ -1,5 +1,5 @@
 import { Layout } from "antd";
-import React, { useState } from "react";
+import React from "react";
 import VMenu from "../Menu/VMenu";
 import "./Home.css";
 import { Outlet } from "react-router-dom";
@@ -7,7 +7,7 @@ import Account from "../account/Account";
 const { Header, Content, Footer, Sider } = Layout;
 
 export default function Home() {
-  const [collapsed, setCollapsed] = useState(false);
+
 
   return (
     <Layout className="Home">

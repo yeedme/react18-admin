@@ -6,27 +6,35 @@ export default function Overview() {
   const CardItemTestData = [
     {
       title: "Total Sales",
+      key:"TotalSales",
       number: "$381,820.75",
       trend: "rise",
       data: "17%",
+      detail:'+15.3k'
     },
     {
-      title: "Total Sales",
+      title: "Vistor",
+      key:"Vistor",
       number: "$1000.2",
       trend: "fall",
       data: "3%",
+      detail:'-6.7k'
     },
     {
-      title: "Total Sales",
+      title: "Total Orders",
+      key:"TotalOrders",
       number: "$3,028.7",
       trend: "rise",
       data: "9%",
+      detail:'-170'
     },
     {
-      title: "Total Sales",
+      title: "Refunded",
+      key:"Refunded",
       number: "$431.4",
       trend: "rise",
       data: "2%",
+      detail:'+20'
     },
   ];
   return (
@@ -36,7 +44,7 @@ export default function Overview() {
       </div>
       <div className=" DataCardList">
         {CardItemTestData.map((t) => {
-          return <DataCardItem CardItemTestData={t} />;
+          return <DataCardItem CardItemTestData={t} key={t.key}/>;
         })}
       </div>
     </div>

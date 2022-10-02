@@ -2,6 +2,7 @@ import axios from "axios";
 //封装 
 const BASE_URL = "http://localhost:8082";
 function axiosGet(options) {
+  console.log(BASE_URL + options.url);
   axios
     .get(BASE_URL + options.url)
     .then((res) => {
@@ -16,6 +17,7 @@ function axiosGet(options) {
   let account = new URLSearchParams();
   account.append("UserName", id);
   account.append("Password", password);
+ 
   return new Promise((resolve, reject) => {
     axiosGet({
       url: `/login?${account}`,

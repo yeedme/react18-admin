@@ -2,9 +2,12 @@ import { Avatar, Dropdown, Menu, message, Space } from "antd";
 import { DownOutlined } from '@ant-design/icons';
 import React from "react";
 import "./Account.css";
+
+import { useSelector } from 'react-redux/'
+import {RealName} from "../../Store/LoginStatus"
 export default function Account() {
   //气泡卡片 hover头像时 会有操作选项
-
+  const name=useSelector(RealName);
   const onClick = ({ key }) => {
     message.info(`Click on item ${key}`);
   };
@@ -30,13 +33,13 @@ export default function Account() {
           xl: 45,
         }}
       >
-        Lucy
+        {name}
       </Avatar>
 
     <Dropdown overlay={menu}>
     <a onClick={(e) => e.preventDefault()}>
       <Space>
-        username
+        {name}
         <DownOutlined />
       </Space>
     </a>
