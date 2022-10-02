@@ -1,42 +1,46 @@
-import { Avatar, Button, Popover } from "antd";
+import { Avatar, Dropdown, Menu, message, Space } from "antd";
+import { DownOutlined } from '@ant-design/icons';
 import React from "react";
 import "./Account.css";
 export default function Account() {
   //气泡卡片 hover头像时 会有操作选项
-  const content = (
-    <div className="Account-options">
-      <Button type="danger" size="small">
-        offline
-      </Button>
-      <Button type="danger" size="small">
-        offline
-      </Button>
-    </div>
-  );
 
+  const onClick = ({ key }) => {
+    message.info(`Click on item ${key}`);
+  };
+  const menu = (
+    <Menu
+      onClick={onClick}
+      items={[
+        {
+          label: 'offline',
+          key: '1',
+        },
+      ]}
+    />
+  );
+  
   return (
     <div className="Account-Content">
-      <Popover
-        placement="bottomRight"
-        title="Lucy"
-        trigger="hover"
-        content={content}
-        arrowPointAtCenter
-        style={{ width: "50px" }}
+      <Avatar
+        ize={{
+          xs: 30,
+          md: 35,
+          lg: 35,
+          xl: 45,
+        }}
       >
-        <Avatar
-          ize={{
-            xs: 30,
-            sm: 30,
-            md: 35,
-            lg: 35,
-            xl: 45,
-            xxl: 55,
-          }}
-        >
-          Lucy
-        </Avatar>
-      </Popover>
+        Lucy
+      </Avatar>
+
+    <Dropdown overlay={menu}>
+    <a onClick={(e) => e.preventDefault()}>
+      <Space>
+        username
+        <DownOutlined />
+      </Space>
+    </a>
+  </Dropdown>
     </div>
   );
 }

@@ -1,18 +1,34 @@
-.OverView-Content{
+.OverView-Content {
+  width: 100%;
+  height: 100%;
+
+  .Overview-Header {
+  }
+  .DataCardList {
     width: 100%;
-    height: 100%;
-    background-color: antiquewhite;
-    .Overview-Header{
-    
+    display: flex;
+    justify-content: center;
+
+    flex-wrap: wrap;
+  }
+  .DataCard {
+    margin: 5px;
+    width: 285px;
+    height: 180px;
+    padding: 15px;
+    background-color: white;
+    .title {
+      font-size: 22px;
+      margin-bottom: 15px;
+      @width: "font-size: 22px;";
+      
     }
-    .DataCardList{
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
+    .number {
+      font-size: 35px;
+      margin-bottom: 0px;
     }
-    .DataCard{
-      width: 400px;
-      height: 300px;
-      background-color: gray;  
+    .details {
+      font-size: 20px;
     }
+  }
 }
