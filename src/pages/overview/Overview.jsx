@@ -7,25 +7,25 @@ export default function Overview() {
     {
       title: "Total Sales",
       number: "$381,820.75",
-      status: "rise",
+      trend: "rise",
       data: "17%",
     },
     {
       title: "Total Sales",
       number: "$1000.2",
-      status: "fall",
+      trend: "fall",
       data: "3%",
     },
     {
       title: "Total Sales",
       number: "$3,028.7",
-      status: "rise",
+      trend: "rise",
       data: "9%",
     },
     {
       title: "Total Sales",
       number: "$431.4",
-      status: "rise",
+      trend: "rise",
       data: "2%",
     },
   ];
