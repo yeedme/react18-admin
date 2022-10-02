@@ -18,7 +18,7 @@
   font-size: 20px;
 }
 .DataCard:hover {
-  background-color: #3b687e;
+  background-color: #3f7d9b;
   color: white;
 }
 .DataCard:hover .number {
