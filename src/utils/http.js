@@ -1,5 +1,5 @@
 import axios from "axios";
-//封装 
+//axios封装
 const BASE_URL = "http://localhost:8082";
 function axiosGet(options) {
   console.log(BASE_URL + options.url);
@@ -12,12 +12,13 @@ function axiosGet(options) {
       options.error(err);
     });
 }
-
- function axiosGetLoginStatus(id, password) {
+//login调用 
+function axiosGetLoginStatus(id, password) {
+  //建立参数
   let account = new URLSearchParams();
   account.append("UserName", id);
   account.append("Password", password);
- 
+
   return new Promise((resolve, reject) => {
     axiosGet({
       url: `/login?${account}`,
@@ -30,4 +31,21 @@ function axiosGet(options) {
     });
   });
 }
-export {axiosGetLoginStatus}
+
+//overView调用 
+function axiosGetDataCard(id) {
+  let account = new URLSearchParams();
+  account.append("UserName", id);
+  return new Promise((resolve, reject) => {
+    axiosGet({
+      url: `/datacard?${account}`,
+      success(result) {
+        resolve(result.data);
+      },
+      error(data) {
+        reject(data);
+      },
+    });
+  });
+}
+export { axiosGetLoginStatus, axiosGetDataCard };

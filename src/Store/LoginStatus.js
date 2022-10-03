@@ -5,6 +5,7 @@ export const slice = createSlice({
     name: 'LoginStatus',
     initialState: {
         value: false,
+        username:'',
         RealName:""  //false：没有登入成功 true：登入成功  
     },
     reducers: {
@@ -17,15 +18,17 @@ export const slice = createSlice({
             state.value = false;
         },
         setRealName: (state,action) => {    
-            console.log(state,action);      
             state.RealName = action.payload;
         },
-
+        setUsername:(state,action)=>{
+            state.username = action.payload;
+        }
     },
 });
 
-export const { online, offline,setRealName } = slice.actions;
+export const { online, offline,setRealName ,setUsername} = slice.actions;
 
 export const selectStatus = state => state.LoginStatus.value;
 export const RealName = state => state.LoginStatus.RealName;
+export const username = state => state.LoginStatus.username;
 export default slice.reducer;

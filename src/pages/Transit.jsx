@@ -7,7 +7,7 @@ export default function Transit() {
     const navigate=useNavigate();
     const status=useSelector(selectStatus)
     useEffect(()=>{
-        console.log("Transit");
+        console.log("Transit中转路由 status"+status);
         status===true?navigate('home'):navigate('/login');
     },[])
   return (
