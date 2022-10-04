@@ -12,7 +12,7 @@ function axiosGet(options) {
       options.error(err);
     });
 }
-//login调用 
+//login调用
 function axiosGetLoginStatus(id, password) {
   //建立参数
   let account = new URLSearchParams();
@@ -32,7 +32,7 @@ function axiosGetLoginStatus(id, password) {
   });
 }
 
-//overView调用 
+//overView调用
 function axiosGetDataCard(id) {
   let account = new URLSearchParams();
   account.append("UserName", id);
@@ -48,4 +48,18 @@ function axiosGetDataCard(id) {
     });
   });
 }
-export { axiosGetLoginStatus, axiosGetDataCard };
+function axiosGetOrderData() {
+  return new Promise((resolve, reject) => {
+    axiosGet({
+      url: `/OrderData`,
+      success(result) {
+        resolve(result.data);
+      },
+      error(data) {
+        reject(data);
+      },
+    });
+  });
+}
+
+export { axiosGetLoginStatus, axiosGetDataCard, axiosGetOrderData };

@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import OrderCard from "../../compontent/order/OrderCard";
 import "./Order.css";
+import {axiosGetOrderData} from "../../utils/http"
 export default function Order() {
   const OrderCardDate = [
     {
       PaymentStatus: "paid",
       name: "LiSi",
       AvatarImg: "https://joeschmoe.io/api/v1/shou",
-      OrderId: "#100-081",
+      OrderID: "#100-081",
       Date: "2021-1-2",
       Price: "178256",
     },
@@ -15,7 +16,7 @@ export default function Order() {
       PaymentStatus: "pending",
       name: "LiHua",
       AvatarImg: "https://joeschmoe.io/api/v1/jake",
-      OrderId: "#200-182",
+      OrderID: "#200-182",
       Date: "2021-1-2",
       Price: "178256",
     },
@@ -24,7 +25,7 @@ export default function Order() {
       PaymentStatus: "paid",
       name: "LiHua",
       AvatarImg: "https://joeschmoe.io/api/v1/ross",
-      OrderId: "#200-183",
+      OrderID: "#200-183",
       Date: "2021-1-2",
       Price: "178256",
     },
@@ -33,17 +34,33 @@ export default function Order() {
       PaymentStatus: "cancelled",
       name: "Wangwu",
       AvatarImg: "https://joeschmoe.io/api/v1/Ri ",
-      OrderId: "#200-184",
+      OrderID: "#200-184",
       Date: "2021-1-2",
       Price: "178256",
     },
   ];
-  const [k]=useState(OrderCardDate);
-  console.log(k);
+  async function Getdata(){
+    let result=await axiosGetOrderData();
+    setOrderData(result);
+    return result;
+  } 
+  const [OrderData,setOrderData]=useState(OrderCardDate);
+  //删除Order数据 
+  const DeleteOrderData=(id)=>{
+    console.log(id);
+    const data=OrderCardDate.filter(data=>data.OrderID!==id);
+    console.log(data);
+    setOrderData(data)
+   
+  }
+  
+  useEffect(()=>{
+    console.log("now:"+OrderData);
+  },[OrderData])
   return (
     <div className="Order-Content">
-      {k.map((t) => {
-      return <OrderCard OrderCardDate={t} key={t.OrderId}/>;
+      {OrderData.map((t) => {
+      return <OrderCard OrderCardDate={t} DeleteOrderData={DeleteOrderData} key={t.OrderID}/>;
       })}
     </div>
   );

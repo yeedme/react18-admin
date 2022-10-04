@@ -3,6 +3,12 @@
     margin-left: auto;
     margin-top: 10px;
 }
+.OrderCard .OrderOptions{
+    width: 100%;
+    justify-content: space-around;
+   
+}
+
 .OrderCardTopLine{
     width: 100%;
     display: flex;

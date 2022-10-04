@@ -19,6 +19,11 @@ export default function Login() {
   const ChangeInputType = () => {
     inputType === "password" ? setInputTyp("text") : setInputTyp("password");
   };
+  //清空用户密码输入框
+  const empty=()=>{
+    setuserName("");
+    setPassword("");
+  }
   //发送数据去后台如果是用户名和密码正确就跳转路由 （路由拦截）
   let checkLogin = async (id, name) => {
     let results = await axiosGetLoginStatus(id, name);
@@ -28,12 +33,10 @@ export default function Login() {
       dispatch(setRealName(results.data[0].RealName));
       dispatch(online());
       navigate("/transit");
-      setuserName("");
-      setPassword("");
+      empty();
     } else {
       message.error("account error");
-      setuserName("");
-      setPassword("");
+      empty();
     }
   };
   //输入框验证
