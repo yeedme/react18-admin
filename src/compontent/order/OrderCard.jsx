@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Avatar, Tag, Card } from "antd";
+import { Avatar, Tag, Card, Popconfirm, message ,Drawer} from "antd";
 import "./OrderCard.css";
 import { DeleteOutlined, TableOutlined } from "@ant-design/icons";
-
+import CommentReply from "../comment/CommentReply"
 export default function OrderCard(props) {
   const { PaymentStatus, name, AvatarImg, OrderID, Date, Price } =
     props.OrderCardDate;
-    const {DeleteOrderData}=props;
-    const [OrderOptionsShow,setOrderOptionsShow]=useState('none');
-    const [DelateStyle,setDelateStyle]=useState('')
+  const { DeleteOrderData } = props;
+  const [OrderOptionsShow, setOrderOptionsShow] = useState("none");
+  const [DelateStyle, setDelateStyle] = useState("");
+
   //PayMentStatus有几种不同的颜色 根据PayMentStatus类型筛选颜色
   const CalculateTag = (PaymentStatus) => {
     switch (PaymentStatus) {
@@ -25,13 +26,17 @@ export default function OrderCard(props) {
         break;
     }
   };
-  const delateCard=(id)=>{
-    setDelateStyle('animate__zoomOutLeft');
-    //设置定时器 完成动画 
-    setTimeout(() => {
-      DeleteOrderData(id);
-    }, 1000);
-     }
+  const [open, setOpen] = useState(false);
+
+  const showDrawer = () => {
+    setOpen(true);
+    console.log('showDrawer');
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
+
   //卡片顶部 头像 名字 PaymentStatus状态
   const OrderTopLine = (
     <div className="OrderCardTopLine">
@@ -43,20 +48,43 @@ export default function OrderCard(props) {
     </div>
   );
 
-  const OrderOptions = (
-    <div className="OrderOptions" style={{display:OrderOptionsShow}}>
-      {/*  DeleteOutlined 删除按钮 点击删除这个数据*/}
-      <DeleteOutlined key="delete" style={{ color: "red", fontSize: "25px" }} onClick={()=>delateCard(OrderID)} /> 
+  const onConfirm = (id) => {
+    setDelateStyle("animate__zoomOutLeft");
+    message.success(`id:${id} delated`);
+    //设置定时器 完成动画后执行删除数据的函数
+    setTimeout(() => {
+      DeleteOrderData(id);
+    }, 1000);
+  };
+  const onCancel = () => {
+    message.success(`delate error`);
+  };
+  //删除按钮 位于oderCard底部操作区
+  const Delete=(
+    <Popconfirm
+    title="Are you sure to delate this "
+    onConfirm={() => onConfirm(OrderID)}
+    onCancel={onCancel}
+    >
+    <DeleteOutlined 
+    key="delete" style={{ color: "red", fontSize: "25px" }} /> 
+    </Popconfirm >
+  )
 
-      <TableOutlined key="details" style={{  fontSize: "25px" }} />
+//oderCard底部操作区
+  const OrderOptions = (
+    <div className="OrderOptions" style={{ display: OrderOptionsShow }}>
+      {/*  DeleteOutlined 删除按钮 点击删除这个数据*/}
+      {Delete}
+      <TableOutlined key="details" style={{ fontSize: "25px" }} onClick={showDrawer} />
     </div>
   );
-  useEffect(() => {
-  }, 
-  [OrderOptionsShow]);
+
+  
+  useEffect(() => {}, [OrderOptionsShow]);
 
   return (
-    <div className={`OrderCard animate__animated ${DelateStyle}`} >
+    <div className={`OrderCard animate__animated ${DelateStyle}`}>
       <Card
         title={OrderTopLine}
         bordered={false}
@@ -64,9 +92,9 @@ export default function OrderCard(props) {
           width: 300,
         }}
         actions={[OrderOptions]}
-        onMouseEnter={()=>setOrderOptionsShow('flex')}
-        onMouseLeave={()=>setOrderOptionsShow('none')}
->
+        onMouseEnter={() => setOrderOptionsShow("flex")}
+        onMouseLeave={() => setOrderOptionsShow("none")}
+      >
         {/* 卡片中间内容 */}
         <div className="OrderCardStyle">
           <div>ORDER ID</div>
@@ -81,6 +109,13 @@ export default function OrderCard(props) {
           <div>{Price}</div>
         </div>
       </Card>
+      
+      <Drawer title="Basic Drawer" placement="right" onClose={onClose} open={open}>
+        <p>Some contents...</p>
+        <p>Some contents.s..</p>
+        <CommentReply/>
+      </Drawer>
+
     </div>
   );
 }
