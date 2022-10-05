@@ -28,6 +28,7 @@ export default function Overview() {
           return <DataCardItem CardItemData={t} key={t.Title} />;
         })}
       </div>
+      <div className="echartss">echarts</div>
     </div>
   );
 }

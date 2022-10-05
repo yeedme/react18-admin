@@ -8,3 +8,8 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+.echartss {
+  width: 700px;
+  height: 200px;
+  background-color: #464646;
+}

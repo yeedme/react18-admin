@@ -1,10 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { Avatar, Tag, Card, Popconfirm, message ,Drawer} from "antd";
+import {
+  Avatar,
+  Tag,
+  Card,
+  Popconfirm,
+  message,
+  Drawer,
+  Descriptions,
+} from "antd";
 import "./OrderCard.css";
-import { DeleteOutlined, TableOutlined } from "@ant-design/icons";
-import CommentReply from "../comment/CommentReply"
+import {
+  DeleteOutlined,
+  TableOutlined,
+  WhatsAppOutlined,
+} from "@ant-design/icons";
+import CommentReply from "../comment/CommentReply";
 export default function OrderCard(props) {
-  const { PaymentStatus, name, AvatarImg, OrderID, Date, Price } =
+  const { PaymentStatus, name, AvatarImg, OrderID, Date, Price ,comment,phone,email} =
     props.OrderCardDate;
   const { DeleteOrderData } = props;
   const [OrderOptionsShow, setOrderOptionsShow] = useState("none");
@@ -30,7 +42,7 @@ export default function OrderCard(props) {
 
   const showDrawer = () => {
     setOpen(true);
-    console.log('showDrawer');
+    console.log("showDrawer");
   };
 
   const onClose = () => {
@@ -60,27 +72,40 @@ export default function OrderCard(props) {
     message.success(`delate error`);
   };
   //删除按钮 位于oderCard底部操作区
-  const Delete=(
+  const Delete = (
     <Popconfirm
-    title="Are you sure to delate this "
-    onConfirm={() => onConfirm(OrderID)}
-    onCancel={onCancel}
+      title="Are you sure to delate this "
+      onConfirm={() => onConfirm(OrderID)}
+      onCancel={onCancel}
     >
-    <DeleteOutlined 
-    key="delete" style={{ color: "red", fontSize: "25px" }} /> 
-    </Popconfirm >
-  )
+      <DeleteOutlined key="delete" style={{ color: "red", fontSize: "25px" }} />
+    </Popconfirm>
+  );
 
-//oderCard底部操作区
+  //oderCard底部操作区
   const OrderOptions = (
     <div className="OrderOptions" style={{ display: OrderOptionsShow }}>
       {/*  DeleteOutlined 删除按钮 点击删除这个数据*/}
       {Delete}
-      <TableOutlined key="details" style={{ fontSize: "25px" }} onClick={showDrawer} />
+      <TableOutlined
+        key="details"
+        style={{ fontSize: "25px" }}
+        onClick={showDrawer}
+      />
     </div>
   );
 
-  
+        {/*------------ 个人信息----------- */}
+  const OrderInfo = (
+    <Descriptions title="User Info">
+      <Descriptions.Item label="UserName">{name}</Descriptions.Item>
+      <Descriptions.Item label="Telephone">{phone}</Descriptions.Item>
+      <Descriptions.Item label="OrderID:">{OrderID}</Descriptions.Item>
+      <Descriptions.Item label="PayMent"> {CalculateTag(PaymentStatus)}</Descriptions.Item>
+      <Descriptions.Item label="email">{email}</Descriptions.Item>
+    </Descriptions>
+  );
+
   useEffect(() => {}, [OrderOptionsShow]);
 
   return (
@@ -109,13 +134,23 @@ export default function OrderCard(props) {
           <div>{Price}</div>
         </div>
       </Card>
-      
-      <Drawer title="Basic Drawer" placement="right" onClose={onClose} open={open}>
-        <p>Some contents...</p>
-        <p>Some contents.s..</p>
-        <CommentReply/>
-      </Drawer>
 
+{/* ------------抽屉------- */}
+      <Drawer
+        title="details"
+        placement="top"
+        onClose={onClose}
+        open={open}
+      >
+
+
+        {/*------------ 个人信息----------- */}
+        {OrderInfo}
+
+
+        {/*------------ 评论区---------- */}
+        <CommentReply name={name} comment={comment} AvatarImg={AvatarImg}/>
+      </Drawer>
     </div>
   );
 }
