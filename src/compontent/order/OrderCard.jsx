@@ -12,7 +12,6 @@ import "./OrderCard.css";
 import {
   DeleteOutlined,
   TableOutlined,
-  WhatsAppOutlined,
 } from "@ant-design/icons";
 import CommentReply from "../comment/CommentReply";
 export default function OrderCard(props) {

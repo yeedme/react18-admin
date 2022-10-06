@@ -3,8 +3,8 @@ import { Menu } from "antd";
 import { useNavigate } from "react-router-dom";
 
 const items = [
-  { label: "OverView", key: "overview" }, // 菜单项务必填写 key
-  { label: "Order", key: "order" },
+  { label: "OverView", key: "overview" }, // 菜单项务必填写 key。 key也是路由路径
+  { label: "Order", key: "order" ,children:[{label:"AllOrder",key:"order/allorder"},{label:"AddOrder",key:"order/addorder"}]},
   { label: "Products", key: "products" ,children:[ { label: "AddProducts", key: "products/addproducts" }]},
 ];
 export default function VMenu() {
@@ -17,7 +17,6 @@ export default function VMenu() {
     navigate(e.key);
   };
   useEffect(() => {
-    console.log("hhh");
     navigate(current);
   }, []);
   return (
