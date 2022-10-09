@@ -28,6 +28,7 @@ export default function AddOrder() {
     <p>Here can push your information  .
       And review Card</p>
       <div className="AddOrder">
+        
  {/* ------------------预览 卡片信息 ------- */}
       <div className="AddOrder-Avatar">
         <OrderCard OrderCardDate={OrderData} />
