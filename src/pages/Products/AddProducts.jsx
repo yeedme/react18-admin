@@ -3,47 +3,80 @@ import {
   LoadingOutlined,
   SmileOutlined,
   SolutionOutlined,
-  UserOutlined,
 } from "@ant-design/icons";
-import { Button, Checkbox, Form, Input, Select, Steps } from "antd";
-import "./AddProducts.css"
-// 添加产品页面 
+import Verification from "../../compontent/verification/Verification";
+import { Button, Select, Steps, message } from "antd";
+import "./AddProducts.css";
+
+// 添加产品页面
 const steps = [
   {
-    title: 'First',
-    content: 'First-content',
+    title: "Verification",
+    content: "First-content",
+    icon: <SolutionOutlined />,
   },
   {
-    title: 'Second',
-    content: 'Second-content',
+    title: "Pay",
+    content: "Second-content",
+    icon: <LoadingOutlined />,
   },
   {
-    title: 'Last',
-    content: 'Last-content',
+    title: "Done",
+    content: "Last-content",
+    icon: <SmileOutlined />,
   },
 ];
 const { Option } = Select;
 const { Step } = Steps;
 
 export default function AddProducts() {
+  const [current, setCurrent] = useState(0);
 
+  const pre = () => {
+    current !== 3 ? setCurrent(current + 1) : message.info("good");
+  };
 
-  const [current,setCurrent]=useState(1);
+  const bac = () => {
+    current !== 0 ? setCurrent(current - 1) : message.info("good");
+  };
+
   return (
     <div className="AddProducts-Content">
+      {/* 步骤条 显示当前进度 */}
       <Steps current={current}>
         {steps.map((item) => (
-          <Step key={item.title} title={item.title} />
+          <Step key={item.title} title={item.title} icon={item.icon} />
         ))}
       </Steps>
 
-      <div className="Steps-Content">
+      {/* 内容显示区  */}
+      <div className="Steps-show">
+        <div
+          className={`Steps-Content Right${current}`}
+          style={{ backgroundImage: "red" }}
+        >
 
+          <div className="t1">
+          <Verification/>
+          </div>
+          <div className="t2">t2 </div>
+          <div className="t3"> t3</div>
+        </div>
       </div>
 
-        <div>
-          <Button type="primary">push</Button>
-        </div>
+      {/* ---------------前进后退按钮区----------------- */}
+      <div>
+        <Button type="primary" onClick={pre}>
+          next{" "}
+        </Button>
+        <Button
+          type="primary"
+          onClick={bac}
+          style={{ display: current === 0 ? "none" : "inline-block" }}
+        >
+          back
+        </Button>
+      </div>
     </div>
-  )
+  );
 }
