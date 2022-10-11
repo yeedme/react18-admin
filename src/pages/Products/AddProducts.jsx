@@ -5,6 +5,7 @@ import {
   SolutionOutlined,
 } from "@ant-design/icons";
 import Verification from "../../compontent/verification/Verification";
+import PayContent from "../../compontent/Pay/PayContent";
 import { Button, Select, Steps, message } from "antd";
 import "./AddProducts.css";
 
@@ -59,8 +60,8 @@ export default function AddProducts() {
           <div className="t1">
           <Verification/>
           </div>
-          <div className="t2">t2 </div>
-          <div className="t3"> t3</div>
+          <div className="t2"> <PayContent/> </div>
+          <div className="t3">  </div>
         </div>
       </div>
 
