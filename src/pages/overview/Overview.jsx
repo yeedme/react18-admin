@@ -5,6 +5,7 @@ import DataCardItem from "../../compontent/dataCardItem/DataCardItem";
 import { useSelector } from "react-redux";
 import { username } from "../../Store/LoginStatus";
 import { axiosGetDataCard } from "../../utils/http";
+import Echart from "../../compontent/Echarts/Echarts";
 
 export default function Overview() {
   const [CardItemData,setCardItemData]=useState([]);
@@ -18,6 +19,7 @@ export default function Overview() {
     //请求数据
     getItemData();
   },[]);
+
   return (
     <div className="OverView-Content">
       <div>
@@ -28,7 +30,12 @@ export default function Overview() {
           return <DataCardItem CardItemData={t} key={t.Title} />;
         })}
       </div>
-      <div className="echartss">echarts</div>
+
+
+    {/* ----------------echart 区---------------------------------------- */}
+      <div className="echartss">
+        <button >click</button>
+        <Echart /></div>
     </div>
   );
 }
