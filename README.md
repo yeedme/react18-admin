@@ -1,3 +1,8 @@
-Mysql+Node+REACT+Ant
-实现了与数据库 增删改查
-但是没有纯REACT写的爽，因为要配套数据库 ，
+
+#Admin后台
+###React+epxress+Mysql+Antd
+#### react
+执行命令：`npm start`
+
+#### node 开启服务器 端口号：8082
+执行命令：` node .\AdminApp.js`
