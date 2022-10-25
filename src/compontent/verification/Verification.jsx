@@ -38,10 +38,12 @@ export default function Verification() {
       })}
       {/* -----------------------phone-------------------------------- */}
 
-      <Form.Item name="Phone" className="FormStyle">
-        Phone
-        <Segmented options={["Mobile", "Static"]} />
-        <Input rules={[{ required: true, message: "Plasea into " }]} />
+      <Form.Item label="Phones" className="FormStyle">
+      <Form.Item name="phoneStley"><Segmented options={["Mobile", "Static"]} /></Form.Item>
+      <Form.Item name="phoneH">
+      <Input rules={[{ required: true, message: "Plasea into " }]} />
+      </Form.Item>
+        
       </Form.Item>
 
       {/* -----------------------AddressLine-------------------------------- */}
@@ -51,7 +53,7 @@ export default function Verification() {
         <textarea className="textareaStyle"></textarea>
       </Form.Item>
       {/* ------------------------------------------------------------------------- */}
-      <Form.Item>
+       <Form.Item>
         <Select defaultValue="provinceOne">
           <Option value="provinceOne">provinceOne</Option>
           <Option value="provinceTwo">provinceTwo</Option>
@@ -69,7 +71,7 @@ export default function Verification() {
           <Option value="StreeOne">StreeOne</Option>
           <Option value="StreeTwo">StreeTwo</Option>
         </Select>
-      </Form.Item>
+      </Form.Item> 
 
       {/* -----------------------LastName-------------------------------- */}
       <Form.Item name="" className="SubmitStyle">

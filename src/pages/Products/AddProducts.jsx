@@ -58,7 +58,7 @@ export default function AddProducts() {
         >
 
           <div className="t1">
-          <Verification/>
+          <Verification/>    {/* 有BUG*/}
           </div>
           <div className="t2"> <PayContent/> </div>
           <div className="t3">  </div>

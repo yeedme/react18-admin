@@ -30,8 +30,7 @@ export default function Overview() {
           return <DataCardItem CardItemData={t} key={t.Title} />;
         })}
       </div>
-
-
+      
     {/* ----------------echart 区---------------------------------------- */}
       <div className="echartss">
         <button >click</button>
