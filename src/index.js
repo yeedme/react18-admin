@@ -1,17 +1,10 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import { BrowserRouter } from "react-router-dom";
-import App from "./App";
-import store from "./Store/store";
-import { Provider } from "react-redux";
-import 'antd/dist/antd.min.css'
-import 'animate.css';
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </Provider>
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
 );
+
