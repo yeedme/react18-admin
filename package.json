@@ -1,25 +1,30 @@
 {
-  "name": "create-react-app-antd",
+  "name": "t",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@craco/craco": "^5.9.0",
-    "@testing-library/jest-dom": "^5.9.0",
-    "@testing-library/react": "^11.0.0",
-    "@testing-library/user-event": "^11.1.0",
-    "antd": "^4.13.0",
-    "craco-less": "^1.17.0",
-    "react": "^16.14.0",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.4"
+    "@craco/craco": "^6.4.5",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "craco-less": "^2.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.2",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test"
+    "test": "craco test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
