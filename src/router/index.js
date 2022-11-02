@@ -1,8 +1,12 @@
-import Login from "../component/Login";
+import Login from "../pages/login/Login";
+import {Navigate} from "react-router-dom"
 const publiceRouter=[
     {
-        path:'/login ',
+        path:'/login',
         element:<Login /> 
+    },{
+        path:'*',
+        element:<Navigate to="/login"/>
     }
 ]
 export { publiceRouter }

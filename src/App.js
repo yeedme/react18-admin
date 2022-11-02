@@ -4,6 +4,6 @@ import { publiceRouter } from './router'
 export default function App() {
   const elements=useRoutes(publiceRouter)
   return (
-    <div>{elements}</div>
+    <>{elements}</>
   )
 }

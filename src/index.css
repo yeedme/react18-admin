@@ -5,9 +5,40 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #2d3250;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+*{
+  margin: 0%;
+  padding: 0%;
+}
+.flexWarp{
+  flex-wrap: wrap;
+}
+.flex_Jcenter_Acenter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flexDirection_column{
+  flex-direction: column;
+}
+.flex_Jcenter_Acenter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex_JSpaceAround_Acenter{
+  display: flex;
+  justify-content: space-around;
+  align-items:flex-end;
+}
+.flex_JSpaceBetween_Acenter{
+  display: flex;
+  justify-content: space-between;
+  align-items:flex-end;
 }
