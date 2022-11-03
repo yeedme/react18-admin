@@ -1,12 +1,13 @@
-import Login from "../pages/login/Login";
+
 import {Navigate} from "react-router-dom"
+import LoginOrRegistered from '../pages/LoginOrRegistered/LoginOrRegistered'
 const publiceRouter=[
+    {path:'*',
+    element:<Navigate to="/LorR"/>
+    },
     {
-        path:'/login',
-        element:<Login /> 
-    },{
-        path:'*',
-        element:<Navigate to="/login"/>
+        path:"/LorR",
+        element:<LoginOrRegistered/>
     }
 ]
 export { publiceRouter }

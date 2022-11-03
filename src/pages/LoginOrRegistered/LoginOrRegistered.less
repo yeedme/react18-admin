@@ -1,0 +1,76 @@
+.LoginOrRegistered{
+
+    .right{
+        height: 100vh;
+        width: 60vw;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .left{
+        height: 100vh;
+        width: 40vw;
+        overflow: hidden;
+        background-size:cover;
+        background-image:url('../../staic/backgroundImg.jpg'   );
+    }
+}
+.LoginOrRegistered_Nav{
+    width: 400px;
+    height: 60px;
+    div{
+        width: 60px;
+        height: 40px;
+        text-align: center;
+        font-size: 20px;
+        color:white ;
+        cursor: pointer;     
+    }
+    .selectDiv{
+        border-bottom: 3px solid #f9b17a;;
+        
+    }
+}
+.showContent{
+    width: 100%;
+    overflow: hidden;
+}
+@media screen and (max-width:767px){
+    .LoginOrRegistered{
+        .left{
+            width:0vw;
+
+        }
+        .right{
+                width: 100vw;
+
+        }
+    }
+    .LoginOrRegistered_Nav{
+        width: 320px;
+    }
+
+}
+.inRight{
+    animation: right 1s;
+}
+@keyframes right{
+    from{transform: translate(-100px,0px);}
+             to{transform: translate(0px,0px);}
+}
+ @-moz-keyframes right{
+     from{transform: translate(-100px,0px);}
+         to{transform: translate(0px,0px);}
+ }
+
+.inLeft{
+    animation: left 1s;
+}
+@keyframes left{
+    from{transform: translate(+100px,0px);}
+        to{transform: translate(0px,0px);}
+}
+@-moz-keyframes left{
+    from{transform: translate(+100px,0px);}
+        to{transform: translate(0px,0px);}
+}

@@ -1,13 +1,9 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+#root{
+  width: 100vw;
+  height: 100vh;
   background-color: #2d3250;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -40,6 +36,12 @@ code {
 .flex_JSpaceBetween_Acenter{
   display: flex;
   justify-content: space-between;
+  align-items:center;
+}
+.flex_JSpaceBetween_AflexEnd{
+  display: flex;
+  justify-content: space-between;
   align-items:flex-end;
 }
+
 

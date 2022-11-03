@@ -1,10 +1,13 @@
 import React from 'react'
-import { useRoutes } from 'react-router-dom'
-import { publiceRouter } from './router'
-// import 'antd/dist/antd.min.css';
+
+import './App.less';
+import { useRoutes } from "react-router-dom";
+import { publiceRouter } from './router/index';
 export default function App() {
-  const elements=useRoutes(publiceRouter)
+  const el=useRoutes(publiceRouter)
   return (
-    <>{elements}</>
+    <>
+      {el}
+    </>
   )
 }
