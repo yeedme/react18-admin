@@ -4,11 +4,11 @@
         "result":[{
             "userName":"admin",
             "password":"admin",
-            "auth":"true"
+            "auth":true
         },{
             "userName":"public",
             "password":"public",
-            "auth":"false"
+            "auth":false
         }]
     
 }
