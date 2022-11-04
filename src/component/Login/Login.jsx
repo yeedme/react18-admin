@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import "./Login.less";
-import { Checkbox , message} from "antd";
+import { Checkbox , message,notification} from "antd";
 
 import { inputRules } from "../../untils/filters";
 import { loginGet } from "../../untils/http"
@@ -38,12 +38,21 @@ export default function Login() {
           confirm=true;
         }
       })
-      confirm?console.log("gc"):accountOrpasswor();
+      confirm?message.success(`${account}欢迎登入`):accountOrpasswor();
     }
     else{
       Missinginformation();
     }
   }
+  //显示账号便于测试
+  const showAccunt=()=>{
+    notification.open({
+      message: '',
+      description:'管理员账号：admin 密码：admin'
+    });
+  }
+    
+  
   return (
     <>
       <div className="y_LoginText">
@@ -90,10 +99,11 @@ export default function Login() {
 
         <div className="y_LoginCheckBoxContent">
           <Checkbox>自动登入</Checkbox>
-          <a href="/#">忘记密码？</a>
+          <p onClick={showAccunt}>点我显示账号</p>
         </div>
         <div className="y_LoginButtonContent">
           <button onClick={submitAll}>登入</button>
+       
         </div>
       </div>
 

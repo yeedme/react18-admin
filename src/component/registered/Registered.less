@@ -1,5 +1,5 @@
 @colorOne:#f9b17a;
-@colorTwo:#676f9b;
+@colorTwo:#767fae;
 @colorThree:#424769;
 .y_Registered{
     height: 540px;
@@ -11,8 +11,8 @@
 .y_RegisteredInputContent{
     width: 320px;
     height: 60px;
-    background-color: #676f9b;
-    color: white;
+    background-color:@colorThree;
+    color: @colorTwo;
     font-size: 18px;
     margin-top: 10px;
     padding-left: 5px;
@@ -24,7 +24,7 @@
     color: white;
     width: 100%;
     height: 30px;
-    margin-top: 5px;
+
     background-color: transparent;
 }
 .y_Passwordstrength{
@@ -34,12 +34,22 @@
     align-items: center;
     color:white
 }
-.y_strength{
-width: 20%;
-height: 15px;
-margin-right: 10px;
-background-color: #f9b17a;;
+.y_Passwordstrength{
+    font-size: 15px;
+    div{
+        height: 15px;
+        margin-right: 10px;
+        width: 70px;
+        background-color:@colorThree;
+    }
+    .y_strength{
+        height: 15px;
+        margin-right: 10px;
+        width: 70px;
+        background-color: #f9b17a;
+    }
 }
+
 .y_RegisteredButton{
     width: 180px;
     height: 50px;
