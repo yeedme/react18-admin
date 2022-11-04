@@ -1,0 +1,14 @@
+{
+  
+        "success":200,
+        "result":[{
+            "userName":"admin",
+            "password":"admin",
+            "auth":"true"
+        },{
+            "userName":"public",
+            "password":"public",
+            "auth":"false"
+        }]
+    
+}
