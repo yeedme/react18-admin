@@ -18,6 +18,9 @@ code {
 .displayFlex{
   display: flex;
 }
+.colorWhite{
+  color: white;
+}
 .flex_Jcenter_Acenter{
   display: flex;
   justify-content: center;
@@ -34,7 +37,7 @@ code {
 .flex_JSpaceAround_Acenter{
   display: flex;
   justify-content: space-around;
-  align-items:flex-end;
+  align-items:center;
 }
 .flex_JSpaceBetween_Acenter{
   display: flex;

@@ -13,3 +13,21 @@
 .LayoutHome .sider {
   height: 100vh;
 }
+.LayoutHome .LayoutHome_OtherBanner {
+  width: 180px;
+  height: 64px;
+}
+.LayoutHome .LayoutHome_Logo {
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.LayoutHome .LayoutHome_MenuFoldBanner {
+  height: 64px;
+  line-height: 10px;
+}
+.LayoutHome .LayoutHome_MenuFoldBanner h2 {
+  margin-bottom: 0;
+  margin-left: 10px;
+}

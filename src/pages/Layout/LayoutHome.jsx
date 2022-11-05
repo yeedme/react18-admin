@@ -5,15 +5,19 @@ import {
   UploadOutlined,
   UserOutlined,
   VideoCameraOutlined,
+  SettingOutlined,
+  SearchOutlined,
+  BulbOutlined
 } from "@ant-design/icons";
-import { Layout, Menu } from "antd";
+import { Layout, Menu,Avatar,Badge } from "antd";
 import { useState } from "react";
+import './LayoutHome.less'
 const { Header, Sider, Content } = Layout;
 export default function LayoutHome() {
   const [collapsed, setCollapsed] = useState(false);
 
 
-  //需要优化 css
+  //需要优化 css 迫不得已才用内联css 权重不够
   return (
     <Layout className="LayoutHome">
       {/* 侧栏 */}
@@ -52,20 +56,32 @@ export default function LayoutHome() {
         />
       </Sider>
       <Layout className="site-layout">
-        <Header style={{ backgroundColor: "#676f9b", padding: 0 }} className="Header displayFlex">
-          <div className="MenuUnfold" onClick={() => setCollapsed(!collapsed)}
-          style={{height:'64px',width:'64px'}}>
+
+   
+        <Header style={{ backgroundColor: "#676f9b", padding:'0 10px' }} className="flex_JSpaceBetween_Acenter">
+          <div className="flex_Jcenter_Acenter LayoutHome_MenuFoldBanner">
+                 {/* 控制nav折叠区 */}
+            <div className="MenuUnfold" onClick={() => setCollapsed(!collapsed)}>
             {collapsed ? (
               <MenuUnfoldOutlined
-                style={{ color: "white", fontSize: "30px" }}
+                className="LayoutHome_Logo"
               />
             ) : (
               <MenuFoldOutlined
-                style={{ color: "white", fontSize: "30px" }}
+              className="LayoutHome_Logo"
               />
-            )}           
+            )}     
+            </div>
+            <h2 className="colorWhite">数据面板</h2>
           </div>
-          <div><button>123213</button></div>
+            {/* 用户 搜索 设置 区 */}
+          <div className="LayoutHome_OtherBanner flex_JSpaceAround_Acenter">
+          <SearchOutlined className="LayoutHome_Logo" />
+          <SettingOutlined  className="LayoutHome_Logo"/>
+          <Badge count={2}><BulbOutlined  className="LayoutHome_Logo"/></Badge>
+          <Avatar src="https://joeschmoe.io/api/v1/random" />
+  
+          </div>
         </Header>
         <Content style={{ backgroundColor: "#2d3250" }}>Content</Content>
       </Layout>

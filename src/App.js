@@ -18,8 +18,8 @@ export default function App() {
   const el=useRoutes(publiceRouter)
   return (
     <>
-      {/* {el} */}
-      <LayoutHome/>
+       {el}
+      {/* <LayoutHome/> */}
     </>
   )
 }

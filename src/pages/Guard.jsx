@@ -7,7 +7,7 @@ export default function Guard() {
   const navigate=useNavigate();
   //loginStatus 成功就
   useEffect(()=>{
-      // loginStatus?navigate('/guard/LayoutHome'):navigate("/LorR")
+       loginStatus?navigate('/guard/LayoutHome'):navigate("/LorR")
     
   },[]);
 
