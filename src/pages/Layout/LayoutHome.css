@@ -9,6 +9,19 @@
 .LayoutHome .Content {
   background-color: #2d3250;
   padding: 16px;
+  min-width: 295px;
+}
+.LayoutHome .logo {
+  height: 60px;
+  color: white;
+  padding-left: 24px;
+  padding-top: 28px;
+}
+.LayoutHome .logo .LayoutHome_Fold {
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;
 }
 .LayoutHome .sider {
   height: 100vh;
@@ -30,4 +43,33 @@
 .LayoutHome .LayoutHome_MenuFoldBanner h2 {
   margin-bottom: 0;
   margin-left: 10px;
+}
+.LayoutHome .LayoutHome_MenuFoldBanner {
+  overflow: hidden;
+}
+.LayoutHome .LayoutHome_Content {
+  overflow: hidden;
+}
+.LayoutHome .Test {
+  width: 400px;
+  height: 600px;
+  background-color: aqua;
+}
+@media screen and (max-width: 767px) {
+  .LayoutHome_MenuFoldBanner {
+    height: 64px;
+  }
+  .LayoutHome_MenuFoldBanner h2 {
+    display: none;
+  }
+  .LayoutHome_Logo {
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  .LayoutHome_OtherBanner {
+    width: 160px;
+    height: 64px;
+  }
 }

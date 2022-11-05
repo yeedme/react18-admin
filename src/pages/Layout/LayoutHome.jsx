@@ -3,14 +3,15 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   UploadOutlined,
-  UserOutlined,
   VideoCameraOutlined,
   SettingOutlined,
   SearchOutlined,
-  BulbOutlined
+  BulbOutlined,
+  BarChartOutlined
 } from "@ant-design/icons";
 import { Layout, Menu,Avatar,Badge } from "antd";
 import { useState } from "react";
+import {  Outlet } from "react-router-dom";
 import './LayoutHome.less'
 const { Header, Sider, Content } = Layout;
 export default function LayoutHome() {
@@ -27,8 +28,19 @@ export default function LayoutHome() {
         collapsed={collapsed}
         style={{ backgroundColor: "#676f9b", height: "100vh" }}
       >
-        <div className="logo" />
-        <img style={{ height: "64px", width: "100%" }} />
+        <div className="logo " > 
+        <div  onClick={() => setCollapsed(!collapsed)}>
+            {collapsed ? (
+              <MenuUnfoldOutlined
+                className="LayoutHome_Fold"
+              />
+            ) : (
+              <MenuFoldOutlined
+              className="LayoutHome_Fold"
+              />
+            )} {collapsed?'':'关闭导航'}   
+            </div></div>
+       
 
         {/* 菜单 */}
         <Menu
@@ -39,40 +51,37 @@ export default function LayoutHome() {
           items={[
             {
               key: "1",
-              icon: <UserOutlined />,
-              label: "nav 1",
+              icon: <BarChartOutlined />,
+              label: "数据面版",
             },
             {
               key: "2",
               icon: <VideoCameraOutlined />,
-              label: "nav 2",
+              label: "订单",
             },
             {
               key: "3",
               icon: <UploadOutlined />,
-              label: "nav 3",
+              label: "菜单"
+            },
+            {
+              key: "4",
+              icon: <UploadOutlined />,
+              label: "客户"
+            },            {
+              key: "5",
+              icon: <UploadOutlined />,
+              label: "数据分析"
             },
           ]}
         />
       </Sider>
       <Layout className="site-layout">
-
-   
         <Header style={{ backgroundColor: "#676f9b", padding:'0 10px' }} className="flex_JSpaceBetween_Acenter">
           <div className="flex_Jcenter_Acenter LayoutHome_MenuFoldBanner">
                  {/* 控制nav折叠区 */}
-            <div className="MenuUnfold" onClick={() => setCollapsed(!collapsed)}>
-            {collapsed ? (
-              <MenuUnfoldOutlined
-                className="LayoutHome_Logo"
-              />
-            ) : (
-              <MenuFoldOutlined
-              className="LayoutHome_Logo"
-              />
-            )}     
-            </div>
-            <h2 className="colorWhite">数据面板</h2>
+           
+            <h2 className="colorWhite">{collapsed?'':'数据面板'}  </h2>
           </div>
             {/* 用户 搜索 设置 区 */}
           <div className="LayoutHome_OtherBanner flex_JSpaceAround_Acenter">
@@ -80,10 +89,11 @@ export default function LayoutHome() {
           <SettingOutlined  className="LayoutHome_Logo"/>
           <Badge count={2}><BulbOutlined  className="LayoutHome_Logo"/></Badge>
           <Avatar src="https://joeschmoe.io/api/v1/random" />
-  
           </div>
         </Header>
-        <Content style={{ backgroundColor: "#2d3250" }}>Content</Content>
+        <Content style={{ backgroundColor: "#2d3250" }} className="LayoutHome_Content">
+          <div className="Test"/>
+          </Content>
       </Layout>
     </Layout>
   );
