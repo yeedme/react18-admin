@@ -1,0 +1,15 @@
+.LayoutHome .triggers {
+  width: 64px;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 16;
+}
+.LayoutHome .Content {
+  background-color: #2d3250;
+  padding: 16px;
+}
+.LayoutHome .sider {
+  height: 100vh;
+}

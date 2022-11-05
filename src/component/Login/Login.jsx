@@ -1,10 +1,16 @@
 import React, { useRef, useState } from "react";
-import "./Login.less";
+
 import { Checkbox , message,notification} from "antd";
 
 import { inputRules } from "../../untils/filters";
 import { loginGet } from "../../untils/http"
+import { useSelector, useDispatch} from 'react-redux';
+import { setAuth,setLoginStatus } from "../../store/loginSlice";
+import { useNavigate } from "react-router-dom"
+import "./Login.less";
 export default function Login() {
+  const navigate=useNavigate();
+  const dispatch=useDispatch();
   //绑定两个父容器 便于修改样式
   const accountInput = useRef(null);
   const passwordInput = useRef(null);
@@ -36,6 +42,10 @@ export default function Login() {
        
         if( t.userName==account && t.password==password ){
           confirm=true;
+          // t.auth=== true or false; 
+          dispatch(setAuth(t.auth))
+          dispatch(setLoginStatus(true))
+          navigate('/guard');
         }
       })
       confirm?message.success(`${account}欢迎登入`):accountOrpasswor();

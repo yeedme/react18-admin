@@ -15,6 +15,9 @@ code {
 .flexWarp{
   flex-wrap: wrap;
 }
+.displayFlex{
+  display: flex;
+}
 .flex_Jcenter_Acenter{
   display: flex;
   justify-content: center;
@@ -45,5 +48,8 @@ code {
 }
 .position_absolute{
   position: absolute;
+}
+#loading{
+  
 }
 
