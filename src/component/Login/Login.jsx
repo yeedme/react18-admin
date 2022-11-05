@@ -68,7 +68,7 @@ export default function Login() {
     <>
       <div className="y_LoginText">
         <h1>hi,欢迎yeedme后台管理</h1>
-        <h2>niu niu niu niu </h2>
+        <h2>V1.2 </h2>
       </div>
       <div className="y_LoginContent">
         {/* 用户名输入框  */}
