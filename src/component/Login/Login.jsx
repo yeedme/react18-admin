@@ -46,6 +46,7 @@ export default function Login() {
           dispatch(setAuth(t.auth))
           dispatch(setLoginStatus(true))
           navigate('/guard');
+          console.log("navigate('/guard');");
         }
       })
       confirm?message.success(`${account}欢迎登入`):accountOrpasswor();
