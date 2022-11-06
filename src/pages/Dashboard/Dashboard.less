@@ -1,0 +1,72 @@
+@colorOne:#f9b17a;
+@colorTwo:#676f9b;
+@colorThree:#424769;
+@media screen and (min-width:1025) {
+    
+
+    .Dashboard_FourEcharts{
+        width: 100%;
+        background-color: aliceblue;
+        padding: 0%;
+        display: flex;
+        
+        justify-content: space-around;
+        align-items: center;
+        .Dashboard_FourEcharts_Echarts{
+            margin-top: 10px;
+            width: 310px;
+            height: 170px;
+            background-color: @colorTwo;
+            transition: cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
+   
+        }
+    }
+}
+    @media screen and (max-width:1025px){   
+        .Dashboard_FourEcharts{
+            background-color: aliceblue;
+            .Dashboard_FourEcharts_Echarts{
+                margin-top: 10px;
+                width: 300px;
+                height: 120px;
+                margin: 0 10px;
+                background-color: @colorTwo;
+            }
+        }
+    }
+    @media screen and (max-width:769px){   
+        .Dashboard_FourEcharts{
+            background-color: rgb(27, 83, 133);
+            display: flex;
+            width: 1080;
+            overflow: auto;
+            .Dashboard_FourEcharts_Echarts{
+                flex-shrink: 0;
+                margin-top: 10px;
+                width: 300px;
+                height: 120px;
+                margin: 0 10px;
+                background-color: @colorTwo;
+           
+            }
+        }
+    }
+    @media screen and (max-width:426px){  
+        @echartWidth:210px;
+        @echartMarginLeft:10px;
+        .Dashboard_FourEcharts{
+            background-color: rgb(38, 80, 116);
+            // width: (( @echartWidth * 4) + (@echartMarginLeft * 4));
+            width: 1080;
+            display: flex;
+            overflow: auto;
+            .Dashboard_FourEcharts_Echarts{
+                flex-shrink: 0;
+                margin-top: 10px;
+                width: 210px;
+                height: 110px;
+                margin: 10 10px;
+                background-color: @colorTwo;
+            }
+        }
+    }

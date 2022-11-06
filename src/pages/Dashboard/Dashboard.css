@@ -1,0 +1,61 @@
+@media screen and (min-width: 1025) {
+  .Dashboard_FourEcharts {
+    width: 100%;
+    background-color: aliceblue;
+    padding: 0%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .Dashboard_FourEcharts .Dashboard_FourEcharts_Echarts {
+    margin-top: 10px;
+    width: 310px;
+    height: 170px;
+    background-color: #676f9b;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
+  }
+}
+@media screen and (max-width: 1025px) {
+  .Dashboard_FourEcharts {
+    background-color: aliceblue;
+  }
+  .Dashboard_FourEcharts .Dashboard_FourEcharts_Echarts {
+    margin-top: 10px;
+    width: 300px;
+    height: 120px;
+    margin: 0 10px;
+    background-color: #676f9b;
+  }
+}
+@media screen and (max-width: 769px) {
+  .Dashboard_FourEcharts {
+    background-color: #1b5385;
+    display: flex;
+    width: 1080;
+    overflow: auto;
+  }
+  .Dashboard_FourEcharts .Dashboard_FourEcharts_Echarts {
+    flex-shrink: 0;
+    margin-top: 10px;
+    width: 300px;
+    height: 120px;
+    margin: 0 10px;
+    background-color: #676f9b;
+  }
+}
+@media screen and (max-width: 426px) {
+  .Dashboard_FourEcharts {
+    background-color: #265074;
+    width: 1080;
+    display: flex;
+    overflow: auto;
+  }
+  .Dashboard_FourEcharts .Dashboard_FourEcharts_Echarts {
+    flex-shrink: 0;
+    margin-top: 10px;
+    width: 210px;
+    height: 110px;
+    margin: 10 10px;
+    background-color: #676f9b;
+  }
+}

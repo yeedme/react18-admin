@@ -38,7 +38,7 @@ export default function Login() {
     let confirm=false;
     if(account !=='' && password !=='' ){
       const {result}= await loginGet();
-      console.log(result);
+
       result.map((t)=>{
        
         if( t.userName==account && t.password==password ){

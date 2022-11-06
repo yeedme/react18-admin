@@ -6,6 +6,10 @@
   align-items: center;
   margin-left: 16;
 }
+.LayoutHome .CollapsedComponent {
+  font-size: 20px;
+  color: white;
+}
 .LayoutHome .Content {
   background-color: #2d3250;
   padding: 16px;
@@ -27,22 +31,26 @@
   height: 100vh;
 }
 .LayoutHome .LayoutHome_OtherBanner {
-  width: 180px;
+  width: 220px;
   height: 64px;
+  background-color: #f9b17a;
 }
 .LayoutHome .LayoutHome_Logo {
+  margin-top: 4px;
   font-size: 20px;
   color: white;
   cursor: pointer;
-  margin-left: 10px;
+  margin-left: 0px;
 }
 .LayoutHome .LayoutHome_MenuFoldBanner {
-  height: 64px;
-  line-height: 10px;
+  overflow: hidden;
 }
 .LayoutHome .LayoutHome_MenuFoldBanner h2 {
   margin-bottom: 0;
-  margin-left: 10px;
+  margin-left: 0px;
+}
+.LayoutHome .LayoutHome_MenuFoldBanner img {
+  margin-bottom: 20px;
 }
 .LayoutHome .LayoutHome_MenuFoldBanner {
   overflow: hidden;
