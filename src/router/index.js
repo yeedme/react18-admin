@@ -8,6 +8,9 @@ import E403 from "../pages/E403.jsx";
 const LayoutHome=React.lazy(()=>
  import('../pages/Layout/LayoutHome')   
 )
+const Dashboard=React.lazy(()=>
+ import('../pages/Dashboard/Dashboard')   
+)
 const publiceRouter=[
     {path:'*',
     element:<Navigate to="/LorR"/>
@@ -24,7 +27,13 @@ const publiceRouter=[
             element:
                 <Suspense >
                     <LayoutHome/>
+                 </Suspense>,
+                 children:[{
+                    path:"dashboard",
+                        element:<Suspense >
+                    <Dashboard/>
                  </Suspense>
+                 }]
                 
         }]
     },{

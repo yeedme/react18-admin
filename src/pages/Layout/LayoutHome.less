@@ -1,101 +1,47 @@
 @colorOne:#f9b17a;
 @colorTwo:#676f9b;
 @colorThree:#424769;
-.LayoutHome{
-    .triggers{
-        width: 64px;
-        background-color: red;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-left: 16;
-    }
-.CollapsedComponent{
-    font-size: 20px;
-    color: white;
-   
-}
-    .Content{
-        background-color: #2d3250;
-        padding: 16px;
-        min-width: 295px;
-        
-    }
-    .logo{
-        height: 60px;
-        color:white;
-        padding-left: 24px;
-        padding-top: 28px;
-        .LayoutHome_Fold{
-            font-size: 14px;
-            color: white;
-            cursor: pointer;
-            margin-left: 10px;
-        }
-    }
-    .sider{
-        height: 100vh;
-    }
-    .LayoutHome_OtherBanner{
-        width: 220px;
-        height: 64px;
-        background-color: #f9b17a;
 
+.LayoutHome_CollapsedComponent{
+    .icon{
+        color: white;
+        font-size: 20px;
+        margin-left: 25px;
+        cursor: pointer;
     }
-    .LayoutHome_Logo{
-        margin-top: 4px;
+}
+.site-layout-background{
+    background-color: #424769;
+}
+.LayoutHome_Content{
+    // background-color:#2d3250;
+    width: 100%;
+    overflow: hidden;
+
+}
+.LayoutHome_Banner{
+    width: 100%;
+    height: 100%;
+}
+//顶部 右侧选项区
+.LayoutHome_otherOptions{
+    width: 160px;
+    height: 100%;
+    .icon{
         font-size: 20px;
         color: white;
+        margin: 0 8px;
         cursor: pointer;
-        margin-left: 0px;
-        
-    }
-    .LayoutHome_MenuFoldBanner{
-        // height: 64px;
-        // line-height: 10px;
-        
-        overflow: hidden;
-        h2{
-            margin-bottom:0;
-            margin-left: 0px;
-           
-        }
-        img{
-            margin-bottom: 20px;
-        }
-    }
-    
-    .LayoutHome_MenuFoldBanner{
-        overflow: hidden;
-    }
-    .LayoutHome_Content{
-        overflow: hidden;
-    }
-    .Test{
-        width: 400px;
-        height: 600px;
-        background-color: aqua;
-    }
+    };
+
 }
 
-@media screen and (max-width:767px) {
-    .LayoutHome_MenuFoldBanner{
-        height: 64px;
-        
-        h2{
-            display: none;
-        }
-    }
-    .LayoutHome_Logo{
-        font-size: 15px;
-        color: white;
-        cursor: pointer;
-        margin-left: 10px;
-        
-    }
-    .LayoutHome_OtherBanner{
-        width: 160px;
-        height: 64px;
-
-    }
+@media screen and (max-width:769px) {
+    .LayoutHome_MenuComponent{
+        width: 100px;
+        display: none;
+    }   
+}
+.ant-layout{
+    background-color:#2d3250;
 }

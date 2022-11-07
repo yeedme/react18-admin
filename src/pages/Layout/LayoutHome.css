@@ -1,83 +1,36 @@
-.LayoutHome .triggers {
-  width: 64px;
-  background-color: red;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 16;
+.LayoutHome_CollapsedComponent .icon {
+  color: white;
+  font-size: 20px;
+  margin-left: 25px;
+  cursor: pointer;
 }
-.LayoutHome .CollapsedComponent {
+.site-layout-background {
+  background-color: #424769;
+}
+.LayoutHome_Content {
+  width: 100%;
+  overflow: hidden;
+}
+.LayoutHome_Banner {
+  width: 100%;
+  height: 100%;
+}
+.LayoutHome_otherOptions {
+  width: 160px;
+  height: 100%;
+}
+.LayoutHome_otherOptions .icon {
   font-size: 20px;
   color: white;
-}
-.LayoutHome .Content {
-  background-color: #2d3250;
-  padding: 16px;
-  min-width: 295px;
-}
-.LayoutHome .logo {
-  height: 60px;
-  color: white;
-  padding-left: 24px;
-  padding-top: 28px;
-}
-.LayoutHome .logo .LayoutHome_Fold {
-  font-size: 14px;
-  color: white;
+  margin: 0 8px;
   cursor: pointer;
-  margin-left: 10px;
 }
-.LayoutHome .sider {
-  height: 100vh;
-}
-.LayoutHome .LayoutHome_OtherBanner {
-  width: 220px;
-  height: 64px;
-  background-color: #f9b17a;
-}
-.LayoutHome .LayoutHome_Logo {
-  margin-top: 4px;
-  font-size: 20px;
-  color: white;
-  cursor: pointer;
-  margin-left: 0px;
-}
-.LayoutHome .LayoutHome_MenuFoldBanner {
-  overflow: hidden;
-}
-.LayoutHome .LayoutHome_MenuFoldBanner h2 {
-  margin-bottom: 0;
-  margin-left: 0px;
-}
-.LayoutHome .LayoutHome_MenuFoldBanner img {
-  margin-bottom: 20px;
-}
-.LayoutHome .LayoutHome_MenuFoldBanner {
-  overflow: hidden;
-}
-.LayoutHome .LayoutHome_Content {
-  overflow: hidden;
-}
-.LayoutHome .Test {
-  width: 400px;
-  height: 600px;
-  background-color: aqua;
-}
-@media screen and (max-width: 767px) {
-  .LayoutHome_MenuFoldBanner {
-    height: 64px;
-  }
-  .LayoutHome_MenuFoldBanner h2 {
+@media screen and (max-width: 769px) {
+  .LayoutHome_MenuComponent {
+    width: 100px;
     display: none;
   }
-  .LayoutHome_Logo {
-    font-size: 15px;
-    color: white;
-    cursor: pointer;
-    margin-left: 10px;
-  }
-  .LayoutHome_OtherBanner {
-    width: 160px;
-    height: 64px;
-  }
+}
+.ant-layout {
+  background-color: #2d3250;
 }
