@@ -1,0 +1,90 @@
+.OrderTarget .OrderTargetContext h2 {
+  color: #9191f5;
+}
+.OrderTarget .OrderTargetContext p {
+  color: white;
+}
+@media screen and (min-width: 768px) {
+  .OrderTarget {
+    width: 100%;
+    height: 150px;
+    margin: 10px;
+  }
+  .OrderTarget .OrderTargetContext {
+    padding: 10px;
+    width: 600px;
+    height: 130px;
+    background-color: #676f9b;
+  }
+  .OrderTarget .OrderTargetProgess {
+    width: 600px;
+    height: 130px;
+    padding: 20px;
+    background-color: #676f9b;
+  }
+}
+@media screen and (max-width: 767px) {
+  .OrderTargetContext {
+    flex-shrink: 0;
+    padding: 10px;
+    width: 300px;
+    height: 130px;
+    background-color: #676f9b;
+  }
+  .OrderTargetProgess {
+    flex-shrink: 0;
+    width: 200px;
+    height: 130px;
+    padding: 20px;
+    background-color: #676f9b;
+  }
+}
+@media screen and (max-width: 426px) {
+  .OrderTarget {
+    height: 320px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .OrderTargetContext {
+    flex-shrink: 0;
+    padding: 10px;
+    width: 320px;
+    height: 130px;
+    background-color: #676f9b;
+  }
+  .OrderTargetProgess {
+    flex-shrink: 0;
+    width: 300px;
+    height: 130px;
+    padding: 20px;
+    background-color: #676f9b;
+    color: white;
+  }
+}
+.OrderTails {
+  width: 99%;
+  height: 400px;
+  background-color: #676f9b;
+  margin: 10px;
+  margin-right: 20px;
+}
+.OrderTails .ant-table-thead > tr > th {
+  background-color: #676f9b;
+  color: white;
+  text-align: center;
+}
+.OrderTails .ant-table-tbody > tr > td {
+  background-color: #676f9b;
+  color: white;
+  text-align: center;
+}
+.OrderTails .ant-table-thead > tr > th:hover {
+  background-color: #f9b17a;
+  color: white;
+  text-align: center;
+}
+.OrderTails .ant-table-tbody > tr > td:hover {
+  background-color: #f9b17a;
+  color: white;
+  text-align: center;
+}

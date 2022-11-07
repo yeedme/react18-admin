@@ -12,7 +12,7 @@ import {
 } from "@ant-design/icons";
 
 import { Layout, Menu, Badge, Avatar } from "antd";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import "./LayoutHome.less";
 const { Header, Sider, Content } = Layout;
@@ -21,6 +21,7 @@ export default function LayoutHome() {
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
   const [label, setLabel] = useState(labels[0]);
+  const [menuKey,setMenuKey]=useState('/guard/LayoutHome/dashboard"')
   const CollapsedComponent = () => {
     return (
       <div
@@ -41,10 +42,11 @@ export default function LayoutHome() {
         theme="dark"
         mode="inline"
         inlineIndent="20"
-        defaultSelectedKeys={["1"]}
+        defaultSelectedKeys={menuKey}
         style={{ backgroundColor: "#424769" }}
         onClick={(value) => {
           navigate(value.key);
+          setMenuKey(value.key)
         }}
         items={[
           {
@@ -76,6 +78,11 @@ export default function LayoutHome() {
       />
     );
   };
+  //默认跳转 dashboard
+  useEffect(()=>{
+    navigate('/guard/LayoutHome/dashboard');
+    setMenuKey("/guard/LayoutHome/dashboard")
+  },[])
   return (
     <Layout>
       {/* 顶部组件区 包括 控制左侧导航的开关 用户头像  消息 全局搜索 设置 */}

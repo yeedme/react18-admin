@@ -5,7 +5,7 @@ import { useRoutes } from "react-router-dom";
 import { publiceRouter } from './router/index';
 import { useSelector } from 'react-redux';
 import { selectAuth , selectloginStatus } from "./store/loginSlice";
-import LayoutHome from './pages/Layout/LayoutHome';
+
 
 // app 作为权限和路由跳转中枢
 
@@ -18,7 +18,8 @@ export default function App() {
   const el=useRoutes(publiceRouter)
   return (
     <>
-        {el} 
+ 
+         {el}  
      {/* <LayoutHome/>  */}
     </>
   )
