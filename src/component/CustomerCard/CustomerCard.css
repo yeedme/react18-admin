@@ -1,6 +1,6 @@
 .CustomerCard {
-  width: 230px;
-  height: 320px;
+  width: 270px;
+  height: 340px;
   padding: 10px;
   background-color: #676f9b;
   margin-top: 10px;
@@ -32,7 +32,7 @@
   color: #fefefe;
 }
 .CustomerStatus {
-  width: 230px;
+  width: 270px;
   padding: 10px;
   background-color: #676f9b;
   margin-bottom: 20px;
