@@ -1,0 +1,22 @@
+.Customer {
+  margin-top: 20px;
+  width: 100%;
+  height: 90%;
+  overflow: auto;
+}
+.Customer .mask {
+  flex-shrink: 0;
+  width: 1200px;
+  height: 600px;
+  display: flex;
+  justify-content: space-around;
+}
+@media screen and (max-width: 426px) {
+  .Customer .mask {
+    flex-shrink: 0;
+    width: 1000px;
+    height: 600px;
+    display: flex;
+    justify-content: space-around;
+  }
+}

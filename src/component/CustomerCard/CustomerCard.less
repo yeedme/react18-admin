@@ -1,0 +1,83 @@
+.CustomerCard{
+    width: 230px;
+    height: 320px;
+    padding: 10px;
+    background-color: #676f9b;
+    margin-top: 10px;
+    .content{
+        width: 90%;
+        height: 50px;
+        border-bottom: 1px solid white;
+        color: white;
+    }
+    .content:nth-child(1){
+        width: 90%;
+        height: 70px;
+        border-bottom: 1px solid white;
+        color: white;
+    }
+    .options{
+        width: 70%;
+        height: 70px;
+        .icon{
+            cursor: pointer;
+            font-size: 30px;
+        }
+        .icon:nth-child(1){
+          color: rgb(201, 94, 122);
+        }
+        .icon:nth-child(2){
+            color: rgb(254, 254, 254);
+          }
+    }
+
+}
+.CustomerStatus{
+    width: 230px;
+    padding: 10px;
+    background-color: #676f9b;
+    margin-bottom: 20px;
+    color:white;
+   
+}
+.circle{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+.green{
+    background-color: rgb(51, 210, 51);
+}
+.red{
+    background-color: rgb(210, 51, 51);
+}
+.purple{
+    background-color: rgb(159, 100, 227);
+}
+@media screen and( max-width:426px) {
+    .CustomerCard{
+        width: 300px;
+        height: 260px;
+     
+    }
+    .options{
+        width: 70%;
+        height: 70px;
+        .icon{
+            cursor: pointer;
+            font-size: 30px;
+        }
+        .icon:nth-child(1){
+          color: rgb(201, 94, 122);
+        }
+        .icon:nth-child(2){
+            color: rgb(254, 254, 254);
+          }
+    }
+    .CustomerStatus{
+        width: 300px;
+        padding: 10px;
+        background-color: #676f9b;
+        margin-bottom: 20px;
+    }
+}

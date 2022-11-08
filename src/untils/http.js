@@ -14,7 +14,7 @@ function axiosGet(options) {
 
 function axiosPost(options) {
     console.log(BASE_URL + options.url);
-  axios
+    axios
     .post(BASE_URL + options.url)
     .then((res) => {
       options.success(res);
@@ -23,6 +23,8 @@ function axiosPost(options) {
       options.error(err);
     });
 }
+
+//获取 login数据 
 function loginGet(){
     return new Promise( (resolve, reject)=>{
         axiosGet({
@@ -36,4 +38,18 @@ function loginGet(){
         })
     } )
 }
-export { loginGet } 
+//
+function customerGet(){
+  return new Promise( (resolve, reject)=>{
+      axiosGet({
+          url:'./data/customer.json',
+          success(data){
+              return resolve(data.data)
+          },
+          error(data){
+              return reject(data)
+          }
+      })
+  } )
+}
+export { loginGet ,customerGet} 

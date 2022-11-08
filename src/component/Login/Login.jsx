@@ -33,7 +33,7 @@ export default function Login() {
   const Missinginformation=()=>{
     message.warning("请入用户名和密码")
   }
-  //提交
+  //提交后台 获取验证
   const submitAll=async()=>{
     let confirm=false;
     if(account !=='' && password !=='' ){
