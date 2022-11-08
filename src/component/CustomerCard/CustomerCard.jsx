@@ -13,7 +13,7 @@ export default function CustomerCard(props) {
       <div className="CustomerStatus flex_JSpaceBetween_Acenter">
         <div className="flex_JSpaceBetween_Acenter ">
           <div className={`circle ${status}`} />
-          已支付
+          {status==='green'?"已支付":status==='red'?'已退款':'订单异常'}
         </div>
         <div>{data.length}人</div>
       </div>
@@ -26,7 +26,7 @@ export default function CustomerCard(props) {
         return <Tag color="green">已支付</Tag>;
 
       case "canceled":
-        return <Tag color="red">取消</Tag>;
+        return <Tag color="red">退款</Tag>;
 
       default:
         return <Tag color="purple">异常</Tag>;
