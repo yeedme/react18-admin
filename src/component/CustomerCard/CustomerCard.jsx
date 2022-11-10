@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, Tag,Popconfirm ,message} from "antd";
+import { Avatar, Tag,Popconfirm ,message,Drawer} from "antd";
 import {
   DeleteOutlined,SmallDashOutlined
 } from '@ant-design/icons';
@@ -7,13 +7,13 @@ import "./CustomerCard.less";
 import { useState } from "react";
 
 export default function CustomerCard(props) {
-  const {status,data}=props;
+  const {status,data,showDrawer}=props;
   const CustomerStatus = () => {
     return (
       <div className="CustomerStatus flex_JSpaceBetween_Acenter">
         <div className="flex_JSpaceBetween_Acenter ">
           <div className={`circle ${status}`} />
-          {status==='green'?"已支付":status==='red'?'已退款':'订单异常'}
+          已支付
         </div>
         <div>{data.length}人</div>
       </div>
@@ -26,7 +26,7 @@ export default function CustomerCard(props) {
         return <Tag color="green">已支付</Tag>;
 
       case "canceled":
-        return <Tag color="red">退款</Tag>;
+        return <Tag color="red">取消</Tag>;
 
       default:
         return <Tag color="purple">异常</Tag>;
@@ -41,6 +41,7 @@ export default function CustomerCard(props) {
 
   return (
     <>
+
      <CustomerStatus paystatus={"green"} />
      {/* data默认是'' 长度0 没有数据的时候不渲染子组件 */}
      {data.length==0?"":
@@ -49,6 +50,7 @@ export default function CustomerCard(props) {
           <div key={index} className="CustomerCard flex_Jcenter_Acenter flexDirection_column" onMouseEnter={()=>{
             setOptinShow('flex')
           }}  onMouseLeave={()=>{setOptinShow('none')}}>
+            
             <div className="flex_JSpaceBetween_Acenter content">
               <div>
                 <Avatar src={`https://joeschmoe.io/api/v1/${t.name}`} />
@@ -81,7 +83,7 @@ export default function CustomerCard(props) {
             <Popconfirm okText="确认" onConfirm={confirm}  cancelText="取消"  title="确认此信息？" >
             <DeleteOutlined  className="icon" style={{display:optionShow}} />
             </Popconfirm>
-            <SmallDashOutlined className='icon' style={{display:optionShow}} />          
+            <SmallDashOutlined className='icon' style={{display:optionShow}} onClick={()=>showDrawer(t)}/>          
             </div>
           </div>
         );

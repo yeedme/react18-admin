@@ -90,6 +90,7 @@ export default function LayoutHome() {
         className="site-layout-background"
         style={{
           padding: 0,
+        
         }}
       >
         <div className="flex_JSpaceBetween_Acenter LayoutHome_Banner">
