@@ -123,8 +123,8 @@ export default function Login() {
       <div className="y_LoginOtherRelate flex_JSpaceBetween_Acenter">
         使用其他账号登入
         <span>
-          <img src={require("../../staic/logo/QQ_login.png")} alt="QQ" />
-          <img src={require("../../staic/logo/WeChat.png")} alt="wechat" />
+          <img src={require("../../static/logo/QQ_login.png")} alt="QQ" />
+          <img src={require("../../static/logo/WeChat.png")} alt="wechat" />
         </span>
       </div>
     </>

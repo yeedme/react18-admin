@@ -38,12 +38,13 @@ function loginGet(){
         })
     } )
 }
-//
+//customer页面调用 
 function customerGet(){
   return new Promise( (resolve, reject)=>{
       axiosGet({
           url:'./data/customer.json',
           success(data){
+            console.log(data.data);
               return resolve(data.data)
           },
           error(data){
@@ -52,4 +53,18 @@ function customerGet(){
       })
   } )
 }
-export { loginGet ,customerGet} 
+//dashbord调用 
+function totalDataGet(){
+  return new Promise((resolve,reject)=>{
+    axiosGet({
+      url:'./data/toaldata.json',
+      success(data){
+        return resolve(data.data)
+      },
+      error(data){
+        return reject(data)
+      }
+    })
+  })
+}
+export { loginGet , customerGet, totalDataGet} 
