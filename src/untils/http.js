@@ -67,4 +67,30 @@ function totalDataGet(){
     })
   })
 }
-export { loginGet , customerGet, totalDataGet} 
+function revenueDataGet(type){
+  return new Promise( ( resolve,reject ) =>{
+    axiosGet({
+      url:`./data/revenue/${type}.json`,
+      success(data){
+        return resolve(data.data)
+      },
+      error(data){
+        return reject(data.data)
+      }
+    })
+  })
+}
+function summaryDataGet(type){
+  return new Promise( ( resolve,reject) =>{
+    axiosGet({
+      url:`./data/summary/${type}.json`,
+      success(data){
+        return resolve(data.data)
+      },
+      error(data){
+        return reject(data.data)
+      } 
+    })
+  })
+}
+export { loginGet , customerGet, totalDataGet,revenueDataGet,summaryDataGet} 

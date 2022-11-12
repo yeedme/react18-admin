@@ -15,6 +15,9 @@
 .Dashboard_BigEcharts::-webkit-scrollbar {
   height: 5px;
 }
+.echartTypeOne {
+  border-radius: 10px;
+}
 @media screen and (min-width: 1023px) {
   .Mask {
     width: 100%;
@@ -61,7 +64,7 @@
   }
   .Dashboard_BigEcharts .echartTypeOne {
     width: 640px;
-    height: 350px;
+    height: 370px;
     margin: 10px;
     background-color: #676f9b;
     flex-shrink: 0;
@@ -122,7 +125,7 @@
   }
   .Dashboard_BigEcharts .echartTypeOne {
     width: 540px;
-    height: 300px;
+    height: 320px;
     margin: 10px;
     background-color: #424769;
     flex-shrink: 0;
@@ -186,8 +189,8 @@
   }
   .Dashboard_BigEcharts .echartTypeOne {
     width: 390px;
-    height: 200px;
-    margin: 10px;
+    height: 280px;
+    margin: 15px;
     background-color: #676f9b;
     flex-shrink: 0;
   }

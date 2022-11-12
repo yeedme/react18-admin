@@ -1,9 +1,9 @@
-import React from "react";
+import React,{ useState,useEffect }  from "react";
 import "./Dashboard.less";
 import { AppstoreOutlined,PayCircleOutlined,TeamOutlined,ProfileOutlined } from "@ant-design/icons";
 import { totalDataGet } from "../../untils/http";
-import { useEffect } from "react";
-import { useState } from "react";
+import RevenueChart from "../../component/echart/RevenueChart";
+import SummaryChart from '../../component/echart/SummaryChart'
 export default function Dashboard() {
   const [totalData, setTotalData] = useState({});
   const axiosTotalData = async () => {
@@ -42,7 +42,7 @@ export default function Dashboard() {
             <div className="flex_JSpaceBetween_AflexEnd">
               <p>{totalData.outcometrend}(30天)</p>
               <img
-                src={require("../../static/imgs/Echarts_one.png")}
+                src={require("../../static/imgs/Echarts_two.png")}
                 alt=""
               />{" "}
             </div>
@@ -57,7 +57,7 @@ export default function Dashboard() {
             <div className="flex_JSpaceBetween_AflexEnd">
               <p>{totalData.ordertrend}(30天)</p>
               <img
-                src={require("../../static/imgs/Echarts_one.png")}
+                src={require("../../static/imgs/Echarts_three.png")}
                 alt=""
               />{" "}
             </div>
@@ -72,7 +72,7 @@ export default function Dashboard() {
             <div className="flex_JSpaceBetween_AflexEnd">
               <p>{totalData.customertrend}(30天)</p>
               <img
-                src={require("../../static/imgs/Echarts_one.png")}
+                src={require("../../static/imgs/Echarts_four.png")}
                 alt=""
               />{" "}
             </div>
@@ -81,8 +81,8 @@ export default function Dashboard() {
       </div>
       <div className="Mask">
         <div className="Dashboard_BigEcharts ">
-          <div className="echartTypeOne"></div>
-          <div className="echartTypeOne"></div>
+          <div className="echartTypeOne"><RevenueChart/></div>
+          <div className="echartTypeOne"><SummaryChart/></div>
           <div className="echartTypeTwo"></div>
           <div className="echartTypeThree"></div>
         </div>

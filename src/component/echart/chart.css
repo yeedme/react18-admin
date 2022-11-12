@@ -1,0 +1,30 @@
+.echartContent {
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  color: white;
+}
+.echartContent .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  background-color: #2d3147;
+  border: none;
+  color: white;
+}
+.echartContent button {
+  background-color: #2d3147;
+  color: white;
+  box-shadow: none;
+  border: 0;
+  width: 60px;
+  height: 40px;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.echartContent .option {
+  margin-left: 10px;
+}
+.echart {
+  width: 100%;
+  height: 85%;
+}
