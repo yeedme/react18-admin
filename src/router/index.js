@@ -18,6 +18,9 @@ const Order=React.lazy(()=>
 const Customer=React.lazy(()=>
     import('../pages/Customer/Customer')
 )
+const MyMenu=React.lazy(()=>
+    import('../pages/MyMenu/MyMenu')
+)
 const publiceRouter=[
     {path:'*',
     element:<Navigate to="/LorR"/>
@@ -49,6 +52,11 @@ const publiceRouter=[
                     path:"customer",
                     element:<Suspense fallback={<LoadingTypeone/>}>
                             <Customer/>
+                    </Suspense>
+                 },{
+                    path:'menu',
+                    element:<Suspense fallback={<LoadingTypeone/>}>
+                        <MyMenu/>
                     </Suspense>
                  }]
                 

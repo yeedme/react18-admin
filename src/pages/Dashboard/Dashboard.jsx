@@ -4,8 +4,11 @@ import { AppstoreOutlined,PayCircleOutlined,TeamOutlined,ProfileOutlined } from 
 import { totalDataGet } from "../../untils/http";
 import RevenueChart from "../../component/echart/RevenueChart";
 import SummaryChart from '../../component/echart/SummaryChart'
+import RecenterCustomer from "../../component/RecentCustomer/RecenterCustomer";
+import RecentComment from '../../component/RecentComment/RecentComment.jsx'
 export default function Dashboard() {
   const [totalData, setTotalData] = useState({});
+  //获取 Dashboard_FourEcharts的数据
   const axiosTotalData = async () => {
     const data = await totalDataGet();
     setTotalData(data);
@@ -16,6 +19,7 @@ export default function Dashboard() {
   return (
     <div className="EchatsGroup">
       <div className="Mask">
+        {/* Dashboard_FourEcharts  */}
         <div className="Dashboard_FourEcharts ">
           {/* 总收入 */}
           <div className="Dashboard_FourEcharts_Echarts">
@@ -83,7 +87,7 @@ export default function Dashboard() {
         <div className="Dashboard_BigEcharts ">
           <div className="echartTypeOne"><RevenueChart/></div>
           <div className="echartTypeOne"><SummaryChart/></div>
-          <div className="echartTypeTwo"></div>
+          <div className="echartTypeTwo"><RecenterCustomer/></div>
           <div className="echartTypeThree"></div>
         </div>
       </div>
