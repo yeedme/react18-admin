@@ -1,8 +1,8 @@
 //用来确认 是否登入成功 和路由鉴权
 import { createSlice } from "@reduxjs/toolkit";
 const initialState={
-    auth:true,//auth:true ==最高权限 auth:false 一般权限
-    loginStatus:true //是否登入成功 
+    auth:false,//auth:true ==最高权限 auth:false 一般权限
+    loginStatus:false //是否登入成功 
 }
 export const Silcer=createSlice({
     name:"login",

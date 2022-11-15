@@ -8,6 +8,7 @@ import { useSelector, useDispatch} from 'react-redux';
 import { setAuth,setLoginStatus } from "../../store/loginSlice";
 import { useNavigate } from "react-router-dom"
 import "./Login.less";
+import { useEffect } from "react";
 export default function Login() {
   const navigate=useNavigate();
   const dispatch=useDispatch();
@@ -64,12 +65,15 @@ export default function Login() {
     });
   }
     
+  useEffect(()=>{
+    showAccunt();
+  },[])
   
   return (
     <>
       <div className="y_LoginText">
         <h1>hi,欢迎yeedme后台管理</h1>
-        <h2>V1.2 </h2>
+        <h2>V1.3 </h2>
       </div>
       <div className="y_LoginContent">
         {/* 用户名输入框  */}
