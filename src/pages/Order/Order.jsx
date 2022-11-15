@@ -14,17 +14,17 @@ const Vdata = [
   {
     name: "小明",
     orderId: "#1001",
-    menony: "13,123",
-    D7: "+7.1%",
-    D30: "-10%",
-    Dy: "+2%",
-    today: "+6%",
+    menony: "5,123",
+    D7: "+1.1%",
+    D30: "+10%",
+    Dy: "-4%",
+    today: "-10%",
     key: "1",
   },
   {
     name: "张三",
     orderId: "#1002",
-    menony: "13,123",
+    menony: "9,123",
     D7: "+7.1%",
     D30: "-10%",
     Dy: "+2%",
@@ -34,28 +34,48 @@ const Vdata = [
   {
     name: "王大牛",
     orderId: "#1003",
-    menony: "13,123",
-    D7: "+7.1%",
-    D30: "-10%",
-    Dy: "+2%",
-    today: "+6%",
+    menony: "12,223",
+    D7: "-13%",
+    D30: "-9%",
+    Dy: "+3.6%",
+    today: "+3%",
     key: "3",
   },
   {
     name: "赵六",
     orderId: "#1004",
-    menony: "13,123",
-    D7: "+7.1%",
-    D30: "-10%",
-    Dy: "+2%",
-    today: "+6%",
+    menony: "3,187",
+    D7: "+3.1%",
+    D30: "-0.99%",
+    Dy: "+1%",
+    today: "-16%",
     key: "4",
+  },
+  {
+    name: "小李",
+    orderId: "#1005",
+    menony: "7,123",
+    D7: "+7.1%",
+    D30: "+3.51%",
+    Dy: "+3%",
+    today: "+11%",
+    key: "5",
+  },
+  {
+    name: "小黑",
+    orderId: "#1006",
+    menony: "-3,178",
+    D7: "-10.1%",
+    D30: "-10.3%",
+    Dy: "-3%",
+    today: "-19%",
+    key: "6",
   },
 ];
 //标签页的数据
 const TaBitems = [
-  { label: '项目 1', key: 'item-1',  }, // 务必填写 key
-  { label: '项目 2', key: 'item-2',  },
+  { label: '全部订单', key: 'item-1',  }, // 务必填写 key
+  { label: '异常订单', key: 'item-2',  },
 ];
 //渲染table里的 D7 D30...
 function R(data) {
@@ -161,7 +181,7 @@ export default function Order() {
     </div>
     </div>
     <div className="OrderTails">
-    <Tabs items={TaBitems} />
+    <Tabs items={TaBitems} style={{color:'white'}}/>
       <Table
         className="OrderMenu"
         columns={columns}

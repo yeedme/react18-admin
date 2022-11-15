@@ -70,9 +70,9 @@ export default function LayoutHome() {
             label: "客户",
           },
           {
-            key: "/guard/LayoutHome/analyse",
-            icon: <BarChartOutlined />,
-            label: "数据分析",
+            // key: "/guard/LayoutHome/analyse",
+            // icon: <BarChartOutlined />,
+            // label: "数据分析",
           },
         ]}
       />

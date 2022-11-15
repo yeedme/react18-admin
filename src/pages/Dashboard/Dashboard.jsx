@@ -88,7 +88,7 @@ export default function Dashboard() {
           <div className="echartTypeOne"><RevenueChart/></div>
           <div className="echartTypeOne"><SummaryChart/></div>
           <div className="echartTypeTwo"><RecenterCustomer/></div>
-          <div className="echartTypeThree"></div>
+          <div className="echartTypeThree"><RecentComment/></div>
         </div>
       </div>
     </div>
