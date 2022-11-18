@@ -90,14 +90,13 @@ export default function LayoutHome() {
         className="site-layout-background"
         style={{
           padding: 0,
-        
         }}
       >
         <div className="flex_JSpaceBetween_Acenter LayoutHome_Banner">
           <div className="flex_JSpaceBetween_Acenter">
             {/* 控制左侧导航的开关  */}
             <CollapsedComponent />
-            <h3 style={{ color: "white", marginLeft: "10px" }}>{label}</h3>
+            <h5 style={{ color: "white", marginLeft: "10px" }}>{collapsed?'打开导航':'收起导航'}</h5>
           </div>
           {/* 用户头像  消息 全局搜索 设置 */}
           <div className="LayoutHome_otherOptions">

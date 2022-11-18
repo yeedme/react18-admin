@@ -49,7 +49,7 @@ export default function CustomerCard(props) {
         return (
           <div key={index} className="CustomerCard flex_Jcenter_Acenter flexDirection_column" onMouseEnter={()=>{
             setOptinShow('flex')
-          }}  onMouseLeave={()=>{setOptinShow('none')}}>
+          }}  onMouseLeave={()=>{setOptinShow('flex')}}>
             
             <div className="flex_JSpaceBetween_Acenter content">
               <div>
@@ -81,9 +81,9 @@ export default function CustomerCard(props) {
             </div>
             <div className="options flex_JSpaceBetween_Acenter" > 
             <Popconfirm okText="确认" onConfirm={confirm}  cancelText="取消"  title="确认此信息？" >
-            <DeleteOutlined  className="icon" style={{display:optionShow}} />
+            <DeleteOutlined  className="icon"  />
             </Popconfirm>
-            <SmallDashOutlined className='icon' style={{display:optionShow}} onClick={()=>showDrawer(t)}/>          
+            <SmallDashOutlined className='icon'  onClick={()=>showDrawer(t)}/>          
             </div>
           </div>
         );
