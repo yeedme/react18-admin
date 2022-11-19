@@ -1,17 +1,17 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
-import { Checkbox , message,notification} from "antd";
+import { Checkbox, message, notification } from "antd";
 
 import { inputRules } from "../../untils/filters";
-import { loginGet } from "../../untils/http"
-import { useSelector, useDispatch} from 'react-redux';
-import { setAuth,setLoginStatus } from "../../store/loginSlice";
-import { useNavigate } from "react-router-dom"
+import { loginGet } from "../../untils/http";
+import { checkCookie, setCookie } from "../../untils/cookie";
+import { useDispatch } from "react-redux";
+import { setAuth, setLoginStatus } from "../../store/loginSlice";
+import { useNavigate } from "react-router-dom";
 import "./Login.less";
-import { useEffect } from "react";
 export default function Login() {
-  const navigate=useNavigate();
-  const dispatch=useDispatch();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   //绑定两个父容器 便于修改样式
   const accountInput = useRef(null);
   const passwordInput = useRef(null);
@@ -28,52 +28,73 @@ export default function Login() {
   //保存 账号和密码数值
   const [account, setAccount] = useState("");
   const [password, setPassword] = useState("");
-  const accountOrpasswor=()=>{
-    message.error("用户名或者密码错误")
-  }
-  const Missinginformation=()=>{
-    message.warning("请入用户名和密码")
-  }
+  //自动登入
+  const [autoLogin, setAutoLogin] = useState(false);
+  const accountOrpasswor = () => {
+    message.error("用户名或者密码错误");
+  };
+  const Missinginformation = () => {
+    message.warning("请入用户名和密码");
+  };
   //提交后台 获取验证
-  const submitAll=async()=>{
-    let confirm=false;
-    if(account !=='' && password !=='' ){
-      const {result}= await loginGet();
+  const submitAll = async () => {
+    let confirm = false;
+    if (account !== "" && password !== "") {
+      const { result } = await loginGet();
 
-      result.map((t)=>{
-       
-        if( t.userName==account && t.password==password ){
-          confirm=true;
-          // t.auth=== true or false; 
-          dispatch(setAuth(t.auth))
-          dispatch(setLoginStatus(true))
-          navigate('/guard');
-          console.log("navigate('/guard');");
+      result.map((t) => {
+        //验证成功
+        if (t.userName == account && t.password == password) {
+          confirm = true;
+          // 设置路由权限 设置登入跳转权限
+          dispatch(setAuth(t.auth));
+          dispatch(setLoginStatus(true));
+          //开启自动登入时 会设置cookie 
+          if (autoLogin) {
+            setCookie("name", account);
+          }
+          //跳转
+          navigate("/guard/LayoutHome/dashboard");
         }
-      })
-      confirm?message.success(`${account}欢迎登入`):accountOrpasswor();
-    }
-    else{
+      });
+      confirm ? message.success(`${account}欢迎登入`) : accountOrpasswor();
+    } else {
       Missinginformation();
     }
-  }
+  };
   //显示账号便于测试
-  const showAccunt=()=>{
+  const showAccunt = () => {
     notification.open({
-      message: '',
-      description:'管理员账号：admin 密码：admin'
+      message: "",
+      description: "管理员账号：admin 密码：admin",
     });
-  }
-    
-  useEffect(()=>{
-    showAccunt();
-  },[])
-  
+  };
+  const autoLoginMessage = () => {
+    notification.open({
+      message: "",
+      description: "admin 自动登入",
+    });
+  };
+  useEffect(() => {
+    //判断是否存在cookie 
+    if (checkCookie()) {
+      //自动登入消息弹框
+      autoLoginMessage();
+      //设置权限 
+      dispatch(setAuth("admin"));
+      dispatch(setLoginStatus(true));
+      navigate("/guard/LayoutHome/dashboard");
+    } else {
+      //没有cookie就老样子 输入账号密码
+      showAccunt();
+    }
+  }, []);
+
   return (
     <>
       <div className="y_LoginText">
         <h1>hi,欢迎yeedme后台管理</h1>
-        <h2>V1.3 </h2>
+        <h2>V1.4 </h2>
       </div>
       <div className="y_LoginContent">
         {/* 用户名输入框  */}
@@ -114,12 +135,13 @@ export default function Login() {
         </div>
 
         <div className="y_LoginCheckBoxContent">
-          <Checkbox>自动登入</Checkbox>
+          <Checkbox onChange={() => setAutoLogin((autoLogin) => !autoLogin)}>
+            自动登入
+          </Checkbox>
           <p onClick={showAccunt}>点我显示账号</p>
         </div>
         <div className="y_LoginButtonContent">
           <button onClick={submitAll}>登入</button>
-       
         </div>
       </div>
 
