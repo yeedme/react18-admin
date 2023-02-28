@@ -1,34 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { Button, ConfigProvider } from "antd";
+import React, { useState } from "react";
+import TestOne from "./component/TestOne";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [color, setColor] = useState("darkTheme");
+  const darkTheme=()=>{
+    setColor("darkTheme");
+  }
+  const blueTheme=()=>{
+    setColor("blue");
+  }
+  const chang=(e:any)=>{
+    setColor(e.value)
+  }
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: color
+        },
+      }}
+    >
+  
+      <Button onClick={blueTheme} type="primary">blueTheme</Button>
+      <Button onClick={darkTheme} type="primary">darkTheme</Button>
+      <button>asdsa</button>
+      <TestOne />
+    </ConfigProvider>
+  );
 }
 
-export default App
+export default App;
