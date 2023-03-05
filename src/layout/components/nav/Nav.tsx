@@ -1,39 +1,39 @@
 import React, { useState } from "react";
-
+import homeLogo from './logo/homeLogo.svg'
 const notSelectedColor = "white";
 const selectedColor = "black";
 const selectedColorBg = " bg-white ";
 const notSelectedColorBg = " bg-zinc-900 ";
-function navBox(navArray:object,selectedIndex:number,updateHooks:Function){
+function navBox(navArray: object, selectedIndex: number, updateHooks: Function) {
   <div
-  className={`w-14 h-14 flex justify-center items-center  ml-2 rounded-l-3xl +${selectedIndex == 1 ? selectedColorBg : notSelectedColorBg
-    }`}
-  onClick={() => updateHooks(1)}
->
-
-  <div className="w-10 h-10 my-4 ">
-    {/* --- logoSvg--- */}
-    <svg
-      viewBox="0 0 1024 1024"
-      version="1.1"
-      xmlns="http://www.w3.org/2000/svg"
-      p-id="4520"
-      width="100%"
-      height="100%"
-    >
-      <path
-        d="M902.826667 377.813333l-119.68 119.68a96.704 96.704 0 0 1-136.746667 0l-119.68-119.68a96.704 96.704 0 0 1 0-136.746666l119.68-119.68a96.704 96.704 0 0 1 136.746667 0l119.68 119.68a96.704 96.704 0 0 1 0 136.746666zM372.693333 490.666667H203.306667C149.973333 490.666667 106.666667 447.36 106.666667 394.026667v-169.173334C106.666667 171.306667 149.973333 128 203.306667 128h169.173333C426.026667 128 469.333333 171.306667 469.333333 224.64v169.173333c0 53.546667-43.306667 96.853333-96.64 96.853334zM799.36 917.333333h-169.173333c-53.333333 0-96.64-43.306667-96.64-96.64v-169.173333c0-53.333333 43.306667-96.64 96.64-96.64h169.173333c53.333333 0 96.64 43.306667 96.64 96.64v169.173333c0 53.333333-43.306667 96.64-96.64 96.64zM372.693333 917.333333H203.306667C149.973333 917.333333 106.666667 874.026667 106.666667 820.693333v-169.173333C106.666667 597.973333 149.973333 554.666667 203.306667 554.666667h169.173333c53.333333 0 96.64 43.306667 96.64 96.64v169.173333A96.426667 96.426667 0 0 1 372.693333 917.333333z"
-        p-id="4521"
-        fill={selectedIndex == 1 ? selectedColor : notSelectedColor}
-      ></path>
-    </svg>
-  </div>
-  {/* --- 选中后显示黑点--- */}
-  <span
-    className={`w-3 h-3 rounded-full ml-20 absolute +${selectedIndex == 1 ? " bg-black " : " hidden"
+    className={`w-14 h-14 flex justify-center items-center  ml-2 rounded-l-3xl +${selectedIndex == 1 ? selectedColorBg : notSelectedColorBg
       }`}
-  ></span>
-</div>
+    onClick={() => updateHooks(1)}
+  >
+
+    <div className="w-10 h-10 my-4 ">
+      {/* --- logoSvg--- */}
+      <svg
+        viewBox="0 0 1024 1024"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        p-id="4520"
+        width="100%"
+        height="100%"
+      >
+        <path
+          d="M902.826667 377.813333l-119.68 119.68a96.704 96.704 0 0 1-136.746667 0l-119.68-119.68a96.704 96.704 0 0 1 0-136.746666l119.68-119.68a96.704 96.704 0 0 1 136.746667 0l119.68 119.68a96.704 96.704 0 0 1 0 136.746666zM372.693333 490.666667H203.306667C149.973333 490.666667 106.666667 447.36 106.666667 394.026667v-169.173334C106.666667 171.306667 149.973333 128 203.306667 128h169.173333C426.026667 128 469.333333 171.306667 469.333333 224.64v169.173333c0 53.546667-43.306667 96.853333-96.64 96.853334zM799.36 917.333333h-169.173333c-53.333333 0-96.64-43.306667-96.64-96.64v-169.173333c0-53.333333 43.306667-96.64 96.64-96.64h169.173333c53.333333 0 96.64 43.306667 96.64 96.64v169.173333c0 53.333333-43.306667 96.64-96.64 96.64zM372.693333 917.333333H203.306667C149.973333 917.333333 106.666667 874.026667 106.666667 820.693333v-169.173333C106.666667 597.973333 149.973333 554.666667 203.306667 554.666667h169.173333c53.333333 0 96.64 43.306667 96.64 96.64v169.173333A96.426667 96.426667 0 0 1 372.693333 917.333333z"
+          p-id="4521"
+          fill={selectedIndex == 1 ? selectedColor : notSelectedColor}
+        ></path>
+      </svg>
+    </div>
+    {/* --- 选中后显示黑点--- */}
+    <span
+      className={`w-3 h-3 rounded-full ml-20 absolute +${selectedIndex == 1 ? " bg-black " : " hidden"
+        }`}
+    ></span>
+  </div>
 }
 function Nav() {
   const [logoColor, setLogoColor] = useState<number>(1);
@@ -168,6 +168,14 @@ function Nav() {
           ></span>
         </div>
       </div>
+      <svg
+        viewBox="0 0 1024 1024"
+        version="1.1"
+        className="fill-blue-500"
+        xmlns="http://www.w3.org/2000/svg"
+        p-id="6379" width="100%" height="100%">
+       {homeLogo}
+        </svg>
     </div>
   );
 }
