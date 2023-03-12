@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import homeLogo from './logo/homeLogo.svg'
 const notSelectedColor = "white";
 const selectedColor = "black";
 const selectedColorBg = " bg-white ";
@@ -21,8 +20,7 @@ function Nav() {
         <div
           className={`w-14 h-14 flex justify-center items-center  ml-2 rounded-l-3xl +${logoColor == 1 ? selectedColorBg : notSelectedColorBg
             }`}
-          onClick={() => selectedELement(1)}
-        >
+          onClick={() => selectedELement(1)}>
 
           <div className="w-8 h-8 my-4 ">
             {/* --- logoSvg--- */}
