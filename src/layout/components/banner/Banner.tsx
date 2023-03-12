@@ -1,12 +1,12 @@
 import React from "react";
 import { Input, Avatar, Badge } from "antd";
-
+import { SearchOutlined} from '@ant-design/icons'
 const { Search } = Input;
 function Banner() {
   return (
-    <div className="w-screen h-20  fixed z-40 flex justify-between items-center border-b-2">
+    <div className="w-screen h-20  fixed z-40 flex justify-between items-center border-b-2 bg-white">
       <div className="w-32 h-20 flex justify-between items-center">
-      <div className="w-10 h-10  flex justify-center items-center ml-2">
+      <div className="w-8 h-8  flex justify-center items-center ml-2">
         <svg
           viewBox="0 0 1024 1024"
           version="1.1"
@@ -41,13 +41,14 @@ function Banner() {
           ></path>
         </svg>
       </div>
-      <h2 className="text-2xl">
+      <h2 className="md:text-2xl">
         title
       </h2>
       </div>
       <div className="flex justify-between items-center ">
         <div>
-          <Search size="large" defaultValue="输入搜索内容" />
+          <Search size="large" defaultValue="输入搜索内容" className="md:block hidden"/>
+          <SearchOutlined className="md:hidden text-3xl"/>
         </div>
         {/* 头像+消息点 */}
         <div>
