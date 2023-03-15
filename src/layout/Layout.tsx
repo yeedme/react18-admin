@@ -1,7 +1,7 @@
 import React from "react";
 import Banner from "./components/banner/Banner";
 import Nav from "./components/nav/Nav";
-import Yinput from "../components/Yinput";
+
 function Layout() {
   return (
     <div className="w-screen h-screen">
