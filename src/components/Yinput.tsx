@@ -3,6 +3,7 @@ import React, { useState } from "react";
 //login 页面 组件
 interface inputProps {
     title: string;
+    type:string;
     dataChange:any;//接受父组件的方法 用与获取输入框内容；
 }
 function Yinput(props: inputProps) {
@@ -19,7 +20,7 @@ function Yinput(props: inputProps) {
             <div className={`' w-2 h-12 mr-1 ' + ${focus ? ' bg-orange-300 ':' '}`} />
             <form className="text-slate-100">
                 <h2 className="text-slate-400">{props.title}</h2>
-                <input type={props.title == '密码' ? 'password' : 'text'} 
+                <input type={props.type == 'password' ? 'password' : 'text'} 
                 className="w-full input" 
                 onFocus={() => setFocus(true)} 
                 onBlur={() => setFocus(false)} 

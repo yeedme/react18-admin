@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Yinput from "../components/Yinput";
-
 function Login() {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
+
   //组件通信
   function getUser(data: string): void {
     setUser(data);
-  }
+  };
+
   function getPassword(data: string): void {
     setPassword(data);
-  }
+  };
+
+
+  
   return (
     <div className="w-screen h-screen ">
       <div className="h-screen w-80 bg-slate-600 py-8 flex flex-col justify-around items-center">
@@ -18,8 +22,8 @@ function Login() {
         <h2 className="text-slate-400">hi,欢迎来到yeedme</h2>
         {/* ------登入组件----- */}
         <div>
-          <Yinput title="用户名" dataChange={getUser} />
-          <Yinput title="密码" dataChange={getPassword} />
+          <Yinput title="userName" type="text" dataChange={getUser} />
+          <Yinput title="password" type="password" dataChange={getPassword} />
           <div className="w-60 flex justify-between items-center mt-8">
             <button className="bg-orange-300 text-white w-24 h-12 shadow-3xl shadow-orange-200" >
               登入

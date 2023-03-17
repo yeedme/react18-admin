@@ -3,6 +3,7 @@ import type { RouteObject } from 'react-router-dom'
 import Login from '../pages/Login'
 import Layout from '../layout/Layout'
 import Home from '../pages/Home'
+import Register from '../pages/Register'
 import {useRoutes} from "react-router-dom"
 const newRouter: RouteObject[] = [
     {
@@ -16,6 +17,10 @@ const newRouter: RouteObject[] = [
     {
         path: "/home",
         element: <Home />
+    },
+    {
+        path: "/register",
+        element: <Register />
     }
 ]
 function RouterElements() {
