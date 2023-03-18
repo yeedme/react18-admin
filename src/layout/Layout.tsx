@@ -9,7 +9,7 @@ function Layout() {
       <Banner />
       {/* --侧边导航栏-- */}
       <Nav />
-      {/* --路由展示区-- */}
+      {/* --字路由展示区-- */}
       <div className="w-screen h-screen pt-24 md:pl-20 md:pr-8 ">
         
       </div>
