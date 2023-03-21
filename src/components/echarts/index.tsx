@@ -1,18 +1,20 @@
-// Echarts.tsx
 import React, { useEffect, useRef, useState } from 'react';
+import type { EChartsOption, ECharts } from 'echarts'; // import only EChartsOption and ECharts types
+
 import * as echarts from 'echarts';
-import { EChartOption } from "echarts";
 
 type BaseChartProps ={
-  options: EChartOption;
+  options: EChartsOption
 };
 
 const Charts: React.FC<BaseChartProps> = ( { options }) => {
   const chartRef = useRef<HTMLInputElement> (null);
-  const [chart, setChart] = useState<echarts.ECharts> ();
+  const [chart, setChart] = useState<ECharts> ();
+  //响应式
   const handleResize = () => {
     chart?.resize();
   };
+  //初始化
   const initChart = () => {
     if (chart) {
       window.removeEventListener("resize", handleResize);
@@ -23,6 +25,7 @@ const Charts: React.FC<BaseChartProps> = ( { options }) => {
     window.addEventListener("resize", handleResize);
     setChart(newChart);
   };
+  //
   useEffect( () => {
     initChart();
   }, [options])

@@ -5,6 +5,7 @@ import Layout from '../layout/Layout'
 import Home from '../pages/Home'
 import Register from '../pages/Register'
 import {useRoutes} from "react-router-dom"
+import  Dashboard  from "../pages/Dashboard";
 const newRouter: RouteObject[] = [
     {
         path: "login",
@@ -12,7 +13,12 @@ const newRouter: RouteObject[] = [
     },
     {
         path: "/",
-        element: <Layout />
+        element: <Layout />,
+        children:[{
+            path:'bashborad',
+            element:<Dashboard/>
+        }]
+       
     },
     {
         path: "/home",

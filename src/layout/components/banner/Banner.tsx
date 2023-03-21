@@ -51,7 +51,7 @@ function Banner() {
           <SearchOutlined className="md:hidden text-3xl"/>
         </div>
         {/* 头像+消息点 */}
-        <div>
+        <div className="mr-8">
           <Badge count={5} className="mx-5">
             <Avatar src="https://joesch.moe/api/v1/random?key=1" size={50} />
           </Badge>

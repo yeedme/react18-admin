@@ -1,6 +1,7 @@
 import React from "react";
 import Banner from "./components/banner/Banner";
 import Nav from "./components/nav/Nav";
+import { Outlet } from "react-router-dom";
 
 function Layout() {
   return (
@@ -11,7 +12,7 @@ function Layout() {
       <Nav />
       {/* --字路由展示区-- */}
       <div className="w-screen h-screen pt-24 md:pl-20 md:pr-8 ">
-        
+        <Outlet/>
       </div>
     </div>
   );
