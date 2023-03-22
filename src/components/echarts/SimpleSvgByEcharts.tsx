@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Charts } from ".";
 import { EChartsOption } from "echarts";
+import { axiosGetChartOne } from "../../utils/http";
 
 const DEFAULT_OPTIONS: EChartsOption = {
   xAxis: [
@@ -38,12 +39,10 @@ export default function SimpleSvgByEcharts() {
             data: [100, 200, 300, 100, 99, 10, 100, 600, 201],
             type: "line",
             smooth: true,
-            areaStyle: {
-    
-            },
+            areaStyle: {},
             itemStyle: {
-              color: "rgba(226, 226, 226, 1)"
-            }
+              color: "rgba(226, 226, 226, 1)",
+            },
           },
         ],
         grid: {
@@ -77,11 +76,19 @@ export default function SimpleSvgByEcharts() {
       setOption(options);
     }
   }, [open]);
+  const getData=async()=>{
 
+    let k =await axiosGetChartOne();
+    console.log(k);
+    
+  }
+  useEffect(()=>{
+    getData();
+  },[])
   return (
     <div className=" w-full h-full  flex justify-center">
       <div
-        className="relative transition-all delay-150 bg-slate-100 w-9/12 h-40 rounded-md hover:w-full hover:h-full hover:bg-slate-900 hover:text-slate-50 "
+        className="border-2 border-2 transition-all delay-150 bg-slate-100 w-9/12 h-40 rounded-md hover:w-full hover:h-full hover:bg-slate-900 hover:text-slate-50 "
         onMouseOver={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
       >

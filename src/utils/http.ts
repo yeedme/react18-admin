@@ -22,7 +22,7 @@ function axiosGet(options: Options) {
 export function axiosGetLogin(){
   return new Promise((resolve,reject)=>{
     axiosGet({
-      url:`${Url}+"/src/assets/user.json"`,
+      url:"/src/assets/user.json",
       success(data: any) { 
         console.log(data);        
         resolve(data);
@@ -38,7 +38,7 @@ export function axiosGetLogin(){
 export function axiosCheckUser(){
   return new Promise((resolve,reject)=>{
     axiosGet({
-      url:`${Url}+"/src/assets/user.json"`,
+      url:"/src/assets/user.json",
       success(data: any) { 
         console.log(data);        
         resolve(data);
@@ -51,3 +51,16 @@ export function axiosCheckUser(){
   })
 }
 
+export function axiosGetChartOne(){
+  return new Promise((resolve,reject)=>{
+    axiosGet({
+      url:"/src/assets/user.json",
+      success(data: any) { 
+        resolve(data);
+      },
+      error(error: AxiosError<any>) {    
+        reject(error);
+      },
+    })
+  })
+}
