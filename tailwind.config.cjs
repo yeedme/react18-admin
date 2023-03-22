@@ -8,6 +8,10 @@ module.exports = {
     extend: {
       boxShadow: {
         '3xl': '0px 0px 5px 0px rgba(0, 0, 0, 0.5)',
+      },
+      spacing: {
+        '128': '1400px',
+        "chartTypeOne":'350px'
       }
     },
   },

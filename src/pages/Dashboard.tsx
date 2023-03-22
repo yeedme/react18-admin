@@ -3,7 +3,7 @@ import SimpleSvgByEcharts from "../components/echarts/SimpleSvgByEcharts";
 export default function Dashboard() {
   return (
     <>
-      <div className="grid grid-cols-1 grid-rows-7 md:grid-cols-4 md:grid-rows-3 gap-4 max-w-screen-2xl">
+      <div className="md:w-128 grid grid-cols-1 grid-rows-7 md:grid-cols-4 md:grid-rows-3 gap-4 max-w-screen-2xl" >
         <div className="h-60"><SimpleSvgByEcharts/></div>
         <div className="bg-blue-100">2</div>
         <div className="bg-blue-100">3</div>

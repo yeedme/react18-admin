@@ -27,6 +27,8 @@ const Charts: React.FC<BaseChartProps> = ( { options }) => {
   };
   //
   useEffect( () => {
+    console.log("change");
+    
     initChart();
   }, [options])
   return <div ref={chartRef} style={ { height: "100%", width: "100%" }} />
