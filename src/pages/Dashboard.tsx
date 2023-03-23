@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SimpleSvgByEcharts from "../components/echarts/SimpleSvgByEcharts";
 import { axiosGetChartOne } from "../utils/http";
+import Overview from "../components/echarts/Overview";
 export default function Dashboard() {
   const [chartDataOne, setChartDataOne] = useState<[] | null>(null);
   const getDataOne = async () => {
@@ -23,7 +24,9 @@ export default function Dashboard() {
               );
             })
           : ""}
-        <div className="bg-blue-100 md:col-span-3 ">5</div>
+        <div className="bg-blue-100 md:col-span-3 h-60 ">
+          <Overview/>
+        </div>
         <div className="bg-blue-100 md:col-span-1 md:row-span-2">6</div>
         <div className="bg-blue-100 md:col-span-3">7</div>
       </div>

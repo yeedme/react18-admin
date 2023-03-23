@@ -92,7 +92,7 @@ export default function SimpleSvgByEcharts(props: dataClass) {
   return (
     <div className=" w-full h-full  flex justify-center">
       <div
-       className="border-2 border-2 transition-all delay-150 bg-slate-100 w-9/12 h-40 rounded-md hover:w-full hover:h-full hover:bg-slate-900 hover:text-slate-50 "
+       className="border-2 transition-all delay-150 bg-slate-50 w-9/12 h-40 rounded-md hover:w-full hover:h-full hover:bg-slate-900 hover:text-slate-50 overflow-hidden"
        onMouseOver={() => setOpen(true)}
        onMouseLeave={() => setOpen(false)}
       >

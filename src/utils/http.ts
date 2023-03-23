@@ -18,7 +18,7 @@ function axiosGet(options: Options) {
       options.error(err);
     });
 }
-
+//向后后台验证数据
 export function axiosGetLogin(){
   return new Promise((resolve,reject)=>{
     axiosGet({
@@ -50,7 +50,7 @@ export function axiosCheckUser(){
     })
   })
 }
-
+//获取bashboard chart类型一
 export function axiosGetChartOne(){
   return new Promise((resolve,reject)=>{
     axiosGet({
