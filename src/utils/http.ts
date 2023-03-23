@@ -54,9 +54,9 @@ export function axiosCheckUser(){
 export function axiosGetChartOne(){
   return new Promise((resolve,reject)=>{
     axiosGet({
-      url:"/src/assets/user.json",
-      success(data: any) { 
-        resolve(data);
+      url:"/src/assets/dataForChartOne.json",
+      success(data) { 
+        resolve(data.data);
       },
       error(error: AxiosError<any>) {    
         reject(error);
