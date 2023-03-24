@@ -24,11 +24,12 @@ export default function Overview() {
     ],
     grid:{
       top:60,
-      bottom:50,
+      bottom:60,
       left:50,
       right:20,
     }
     };
+    // 级联返回起
   const handleCascaderChange = (value: string[] | number[]) => {
     // 处理级联选择器变化的逻辑
   };
@@ -47,8 +48,8 @@ export default function Overview() {
   ];
   return (
     <div className='w-full h-full'>
-      <div>
-        <h2>sadas</h2>
+      <div className='flex justify-between px-4 pt-2'>
+        <h2>title</h2>
         <Ycascadern op={cascaderOptions} onChange={handleCascaderChange} />
       </div>
       <Charts options={DEFAULT_OPTIONS}/>
