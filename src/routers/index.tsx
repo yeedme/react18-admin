@@ -21,11 +21,7 @@ const newRouter: RouteObject[] = [
        
     },
     {
-        path: "/home",
-        element: <Home />
-    },
-    {
-        path: "/register",
+        path: "register",
         element: <Register />
     }
 ]

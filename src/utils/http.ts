@@ -24,27 +24,11 @@ export function axiosGetLogin(){
     axiosGet({
       url:"/src/assets/user.json",
       success(data: any) { 
-        console.log(data);        
-        resolve(data);
+          
+        resolve(data.user);
       },
       error(error: AxiosError<any>) {
-        console.log(error);        
-        reject(error);
-      },
-    })
-  })
-}
-
-export function axiosCheckUser(){
-  return new Promise((resolve,reject)=>{
-    axiosGet({
-      url:"/src/assets/user.json",
-      success(data: any) { 
-        console.log(data);        
-        resolve(data);
-      },
-      error(error: AxiosError<any>) {
-        console.log(error);        
+            
         reject(error);
       },
     })

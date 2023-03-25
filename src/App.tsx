@@ -10,7 +10,6 @@ function App() {
 
   useEffect(() => {
     navigate("/login");
- 
   }, [])
   
   return <>

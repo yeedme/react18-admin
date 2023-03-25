@@ -1,34 +1,63 @@
 import React, { useEffect, useState } from "react";
 import Yinput from "../components/Yinput";
+import AnimateBackGround from "../layout/components/animation";
+import { useNavigate } from "react-router-dom";
+import { axiosGetLogin } from "../utils/http";
+import { message } from "antd";
 function Login() {
+  const navigate = useNavigate();
   const [user, setUser] = useState("");
-  const [password, setPassword] = useState("");
+  const [passwords, setPasswords] = useState("");
 
   //组件通信
   function getUser(data: string): void {
     setUser(data);
-  };
+  }
 
   function getPassword(data: string): void {
-    setPassword(data);
-  };
+    setPasswords(data);
+  }
+  //模拟向后台验证数据
+  const checkLogin = async (): Promise<void> => {
+    const data:any=await axiosGetLogin();
+    const {name,password}=data[0];
+    if(user==name && password===passwords){
+     navigate('/bashborad');
+    }else{
+      message.info("输入有误")
+    }
+    
+  }
 
-
+  function login(){
   
+  } 
+
+  useEffect(()=>{
+      
+  },[])
   return (
-    <div className="w-screen h-screen ">
-      <div className="h-screen w-80 bg-slate-600 py-8 flex flex-col justify-around items-center">
+    <div className="w-screen h-screen relative flex justify-center items-center">
+      <AnimateBackGround />
+      <div className="h-screen w-80 py-8 flex flex-col justify-around items-center absolute">
         {/* ------登入欢迎语----- */}
-        <h2 className="text-slate-400">hi,欢迎来到yeedme</h2>
+        <h2 className="text-slate-200">hi,欢迎来到yeedme</h2>
         {/* ------登入组件----- */}
         <div>
-          <Yinput title="userName" type="text" dataChange={getUser} />
-          <Yinput title="password" type="password" dataChange={getPassword} />
+          <Yinput title="用户名" type="text" dataChange={getUser} />
+          <Yinput title="密码" type="password" dataChange={getPassword} />
           <div className="w-60 flex justify-between items-center mt-8">
-            <button className="bg-orange-300 text-white w-24 h-12 shadow-3xl shadow-orange-200" >
+            <button 
+              onClick={()=>checkLogin()}
+            className="bg-orange-300 text-white w-24 h-12 shadow-3xl shadow-orange-200">
               登入
             </button>
-            <h2 className="text-slate-400 cursor-pointer">忘记密码</h2>
+            <h2
+              onClick={() => navigate("/register")}
+              className="text-slate-400 cursor-pointer"
+            >
+              注册
+            </h2>
           </div>
         </div>
 
