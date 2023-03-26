@@ -53,7 +53,7 @@ export default function SimpleSvgByEcharts(props: dataClass) {
     setEchartsTitle(title);
     setSimpleDatas(simpleDatas);
   },[props])
-  useEffect(() => {
+  function hoverCard(){
     if (open === true) {
       const options: EChartsOption = {
         ...DEFAULT_OPTIONS,
@@ -101,6 +101,9 @@ export default function SimpleSvgByEcharts(props: dataClass) {
       };
       setOption(options);
     }
+  }
+  useEffect(() => {
+    hoverCard();
   }, [open]);
   return (
     <div className=" w-full h-full  flex justify-center">

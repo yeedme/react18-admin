@@ -53,7 +53,7 @@ export function axiosGetoverviweData(){
     axiosGet({
       url:"/src/assets/overViewData.json",
       success(data) { 
-        resolve(data.data);
+        resolve(data);
       },
       error(error: AxiosError<any>) {    
         reject(error);
