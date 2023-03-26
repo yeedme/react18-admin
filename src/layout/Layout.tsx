@@ -1,6 +1,6 @@
 import React from "react";
-import Banner from "./components/banner/Banner";
-import Nav from "./components/nav/Nav";
+import Banner from "../components/banner/Banner";
+import Nav from "../components/nav/Nav";
 import { Outlet } from "react-router-dom";
 
 function Layout() {

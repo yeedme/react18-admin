@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Yinput from "../components/Yinput";
-import AnimateBackGround from "../layout/components/animation";
+import AnimateBackGround from "../components/animation";
 import { useNavigate } from "react-router-dom";
 export default function Register() {
   const navigate=useNavigate();
