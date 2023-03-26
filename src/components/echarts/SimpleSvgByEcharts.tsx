@@ -17,18 +17,28 @@ const DEFAULT_OPTIONS: EChartsOption = {
   ],
   series: [
     {
+      
       data: [10, 100],
       showSymbol: false,
       type: "line",
       smooth: true,
+
     },
+    
   ],
+  grid: {
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
 };
 interface dataClass {
   title: string;
   datas: number[];
   simpleDatas:number[];
   trend:string;
+  color?:string;
 }
 export default function SimpleSvgByEcharts(props: dataClass) {
   const [open, setOpen] = useState<boolean>(false);
@@ -54,7 +64,7 @@ export default function SimpleSvgByEcharts(props: dataClass) {
             smooth: true,
             areaStyle: {},
             itemStyle: {
-              color: "rgba(226, 226, 226, 1)",
+              color: props.color
             },
           },
         ],
@@ -80,6 +90,9 @@ export default function SimpleSvgByEcharts(props: dataClass) {
             showSymbol: false,
             type: "line",
             smooth: true,
+            itemStyle: {
+              color: props.color
+            },
           },
         ],
         grid: {
@@ -92,7 +105,7 @@ export default function SimpleSvgByEcharts(props: dataClass) {
   return (
     <div className=" w-full h-full  flex justify-center">
       <div
-       className="border-2 transition-all delay-150 bg-slate-50 w-9/12 h-40 rounded-md hover:w-full hover:h-full hover:bg-slate-900 hover:text-slate-50 overflow-hidden"
+       className="rounded-xl border-2 transition-all delay-150 w-9/12 h-40 rounded-md hover:w-full hover:h-full hover:bg-slate-900 hover:text-slate-50 overflow-hidden"
        onMouseOver={() => setOpen(true)}
        onMouseLeave={() => setOpen(false)}
       >

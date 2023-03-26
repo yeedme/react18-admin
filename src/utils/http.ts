@@ -48,3 +48,16 @@ export function axiosGetChartOne(){
     })
   })
 }
+export function axiosGetoverviweData(){
+  return new Promise((resolve,reject)=>{
+    axiosGet({
+      url:"/src/assets/overViewData.json",
+      success(data) { 
+        resolve(data.data);
+      },
+      error(error: AxiosError<any>) {    
+        reject(error);
+      },
+    })
+  })
+}

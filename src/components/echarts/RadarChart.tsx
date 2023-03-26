@@ -9,7 +9,7 @@ export default function RadarChart() {
     radar: {
       // shape: 'circle',
       indicator: [
-        { name: 'Sales', max: 6500 },
+        { name: 'Sales', max: 65000 },
         { name: 'Administration', max: 16000 },
         { name: 'Information Technology', max: 30000 },
         { name: 'Customer Support', max: 38000 },
@@ -17,6 +17,9 @@ export default function RadarChart() {
         { name: 'Marketing', max: 25000 }
       ]
     },
+    yAxis: {
+      alignTicks: false
+  },
     series: [
       {
         name: 'Budget vs spending',

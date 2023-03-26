@@ -3,7 +3,9 @@ import SimpleSvgByEcharts from "../components/echarts/SimpleSvgByEcharts";
 import { axiosGetChartOne } from "../utils/http";
 import Overview from "../components/echarts/Overview";
 import RadarChart from "../components/echarts/RadarChart";
+
 export default function Dashboard() {
+  const color=['#ff7875','#ffd666','#743787',"#436b75"];
   const [chartDataOne, setChartDataOne] = useState<[] | null>(null);
   const getDataOne = async () => {
     let data: any = await axiosGetChartOne();
@@ -20,15 +22,17 @@ export default function Dashboard() {
           ? chartDataOne.map((t:any, index) => {
               return (
                 <div className="h-60" key={index}>
-                  <SimpleSvgByEcharts title={t.title} datas={t.data} simpleDatas={t.trendData} trend={t.trend}/>
+                  <SimpleSvgByEcharts title={t.title} datas={t.data} simpleDatas={t.trendData} trend={t.trend} color={color[index]}/>
                 </div>
               );
             })
           : ""}
-        <div className="bg-blue-100 md:col-span-3 h-60 ">
+        <div className=" md:col-span-3 h-60 ">
           <Overview/>
         </div>
-        <div className="bg-blue-100 md:col-span-1 md:row-span-2"><RadarChart/></div>
+        <div className="bg-blue-100 md:col-span-1 md:row-span-2">
+          {/* <RadarChart/> */}
+          </div>
         <div className="bg-blue-100 md:col-span-3">7</div>
       </div>
     </>
