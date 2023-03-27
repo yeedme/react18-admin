@@ -11,6 +11,7 @@ function Yinput(props: inputProps) {
     //焦距的时候 输入框样式变化
     const [focus, setFocus] = useState<boolean>(false);
     const [inputData,SetInputData]=useState<string>('');
+    //输入过滤
     function inputFilter(value:string){
         value = value.replaceAll(/[^\w]/g, '');
         SetInputData(value);
