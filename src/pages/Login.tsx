@@ -4,8 +4,11 @@ import AnimateBackGround from "../components/animation";
 import { useNavigate } from "react-router-dom";
 import { axiosGetLogin } from "../utils/http";
 import { message } from "antd";
+import { useDispatch, } from "react-redux";
+import { turnOn } from "../store/loginStatus";
 function Login() {
   const navigate = useNavigate();
+  const dispatch=useDispatch();
   const [user, setUser] = useState("");
   const [passwords, setPasswords] = useState("");
 
@@ -21,8 +24,10 @@ function Login() {
   const checkLogin = async (): Promise<void> => {
     const data:any=await axiosGetLogin();
     const {name,password}=data[0];
+    //登入成功跳转 并且将全局状态设置为true
     if(user==name && password===passwords){
-     navigate('/bashborad');
+      dispatch(turnOn);
+      navigate("/bashborad");
     }else{
       message.info("输入有误")
     }
