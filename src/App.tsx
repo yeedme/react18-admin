@@ -10,21 +10,20 @@ function App() {
   let ls=useSelector(selectLoginStatus);
   const [loginStatus]=useState(ls)
   useEffect(() => {
-    //selectLoginStatus==true说明已经登入或者是自动登入
-    console.log(loginStatus);
+
     
-    // if(loginStatus){
-    //   navigate("/bashborad");
+    if(loginStatus){
+      navigate("/bashborad");
       
-    // }else{
-    //   navigate("/login");
-    // }
+    }else{
+      navigate("/login");
+    }
      
   }, [loginStatus]);
   return (
     <>
 
-      {/* <RouterElements /> */}
+      <RouterElements />
     </>
   );
 }

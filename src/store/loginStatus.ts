@@ -10,8 +10,6 @@ export const counterSlice = createSlice({
       state.value =false;
     },
     turnOn: (state) => {
-      console.log("trun on");
-      
       state.value = true;
     },
 
