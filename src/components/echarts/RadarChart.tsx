@@ -3,9 +3,7 @@ import { Charts } from ".";
 import { EChartsOption } from "echarts";
 export default function RadarChart() {
   const DEFAULT_OPTIONS:EChartsOption = {
-    title: {
-    text: 'Basic Radar Chart'
-  },
+
   legend: {
     data: ['Allocated Budget', 'Actual Spending']
   },

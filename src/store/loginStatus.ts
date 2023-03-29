@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const counterSlice = createSlice({
   name: 'loginStatus',
   initialState: {
-    value: false,
+    value: true,
   },
   reducers: {
     turnOff: (state) => {
