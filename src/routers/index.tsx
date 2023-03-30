@@ -17,6 +17,9 @@ const newRouter: RouteObject[] = [
         children:[{
             path:'bashborad',
             element:<Dashboard/>
+        },{
+            path:"home",
+            element:<Home/>
         }]
        
     },

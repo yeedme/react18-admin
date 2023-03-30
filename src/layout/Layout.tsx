@@ -11,7 +11,7 @@ function Layout() {
       {/* --侧边导航栏-- */}
       <Nav />
       {/* --字路由展示区-- */}
-      <div className="w-screen h-screen pt-24 md:pl-20 md:pr-8 ">
+      <div className="w-full h-auto pt-24 md:pl-20 md:pr-8 bg-gray-100">
         <Outlet/>
       </div>
     </div>
