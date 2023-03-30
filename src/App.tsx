@@ -13,7 +13,7 @@ function App() {
 
     
     if(loginStatus){
-      navigate("/bashborad");
+      navigate("/home");
       
     }else{
       navigate("/login");
