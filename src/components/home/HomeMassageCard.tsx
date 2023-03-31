@@ -1,7 +1,6 @@
 import React from "react";
 import Avatar from "antd/es/avatar/avatar";
-import jack from "../assets/imgsvg/jack.svg";
-import like from "../assets/imgsvg/like.svg";
+import jack from "../../assets/imgsvg/jack.svg";
 type Props = {};
 
 const HomeMassageCard = (props: Props) => {
