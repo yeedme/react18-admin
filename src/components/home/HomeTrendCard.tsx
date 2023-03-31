@@ -1,28 +1,41 @@
 import { Avatar } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import jai from "../../assets/imgsvg/jai.svg";
+import jabala from "../../assets/imgsvg/jabala.svg";
+
 type Props = {};
-const [k] = [
+
+const k = [
   {
     avatar: jai,
     title:
       "虽然现在我们还无法完全理解宇宙的本质，但是随着科技的不断进步，我们有望更深入地探索黑洞、引力波等奥秘，从而更好地认识宇宙的演化历程。",
     readed: "2.1k",
   },
+  {
+    avatar: jabala,
+    title:
+      "自我成长是一个漫长而艰辛的过程，需要我们持之以恒，不断学习和实践。只有通过不断地挑战自己，才能发现自己潜藏的能力和价值，成为更好的自己。",
+    readed: "1.6k",
+  },
 ];
 
 export default function HomeTrendCard({}: Props) {
+
+  const [initialData,setInitialData]=useState(k);
+
   return (
-    <div className="w-full h-auto bg-white px-4 pt-4 rounded border-2 bg-white ">
+    <div className="w-full h-auto bg-white px-4 pt-4 rounded border-2 bg-white mt-6">
       <h2>正在热议</h2>
-    
-      <div className="w-full h-22  flex border-b-2 pt-2">
+    {initialData.map((t,index)=>{
+      return (
+        <div className="w-full h-22  flex border-b-2 pt-2" key={index}>
         <div className="frink-0">
-          <Avatar />
+          <Avatar size={46} src={t.avatar}/>
         </div>
         <div className="mt-2 ml-2 ">
           <h2>
-            碍事的家伙 啊是对卡时间撒旦哈克时间大街上大四安徽省肯定就爱上大卡司
+          {t.title}
           </h2>
           <div className="flex items-center mt-4 ">
             <div className="w-8 h-8 ">
@@ -42,10 +55,15 @@ export default function HomeTrendCard({}: Props) {
                 ></path>
               </svg>
             </div>
-            <div>18</div>
+            <div>{t.readed}</div>
           </div>
         </div>
       </div>
+      )
+    })
+
+    }
+    
     </div>
   );
 }
