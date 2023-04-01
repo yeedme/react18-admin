@@ -1,32 +1,74 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Avatar from "antd/es/avatar/avatar";
-import jack from "../../assets/imgsvg/jack.svg";
-type Props = {};
-
+import HomeCommentCard from "./HomeCommentCard";
+interface Props {
+  avatar: String;
+  id: String;
+  email: String;
+  title: String;
+  context: string;
+  like: number;
+  comment: number;
+  readed: number;
+}
 const HomeMassageCard = (props: Props) => {
+  const [like,setLike]=useState(false);
+  const [comment,setComment]=useState(false);
+  function changeLike(){
+    setLike(()=>!like)
+  }
+  function changeComment(){
+    setComment(()=>!comment)
+  }
   return (
-    <div className="w-full h-80 bg-white rounded border-2 p-4 my-4 flex justify-between flex-col">
+    <>
+    <div className="w-full h-80 bg-white rounded border-2 p-4 mt-6 flex justify-between flex-col">
       <div className="flex justify-between w-full">
         <div className="flex w-42 items-center shrink-0 font-light">
-          <Avatar src={jack} size={54} />
+          <Avatar src={props.avatar} size={54} />
           <div className="ml-4 h-full flex flex-col justify-between ">
-            <h2>name</h2>
-            <h2 className="text-gray-400">timeline timelinetimeline</h2>
+            <h2>{props.id}</h2>
+            <h2 className="text-gray-400">{props.email}</h2>
           </div>
         </div>
         {/* 更多信息操作图标 */}
         <div className="w-8 h-8 cursor-pointer">
-        <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10899" width="100%" height="100%"><path d="M223.962372 607.897867c-52.980346 0-95.983874-43.003528-95.983874-95.983874s43.003528-95.983874 95.983874-95.983874 95.983874 43.003528 95.983874 95.983874S276.942718 607.897867 223.962372 607.897867z" fill="#575B66" p-id="10900"></path><path d="M511.913993 607.897867c-52.980346 0-95.983874-43.003528-95.983874-95.983874s43.003528-95.983874 95.983874-95.983874 95.983874 43.003528 95.983874 95.983874S564.894339 607.897867 511.913993 607.897867z" fill="#575B66" p-id="10901"></path><path d="M800.037628 607.897867c-52.980346 0-95.983874-43.003528-95.983874-95.983874s43.003528-95.983874 95.983874-95.983874 95.983874 43.003528 95.983874 95.983874S852.84596 607.897867 800.037628 607.897867z" fill="#575B66" p-id="10902"></path></svg>
+          <svg
+            viewBox="0 0 1024 1024"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            p-id="10899"
+            width="100%"
+            height="100%"
+          >
+            <path
+              d="M223.962372 607.897867c-52.980346 0-95.983874-43.003528-95.983874-95.983874s43.003528-95.983874 95.983874-95.983874 95.983874 43.003528 95.983874 95.983874S276.942718 607.897867 223.962372 607.897867z"
+              fill="#575B66"
+              p-id="10900"
+            ></path>
+            <path
+              d="M511.913993 607.897867c-52.980346 0-95.983874-43.003528-95.983874-95.983874s43.003528-95.983874 95.983874-95.983874 95.983874 43.003528 95.983874 95.983874S564.894339 607.897867 511.913993 607.897867z"
+              fill="#575B66"
+              p-id="10901"
+            ></path>
+            <path
+              d="M800.037628 607.897867c-52.980346 0-95.983874-43.003528-95.983874-95.983874s43.003528-95.983874 95.983874-95.983874 95.983874 43.003528 95.983874 95.983874S852.84596 607.897867 800.037628 607.897867z"
+              fill="#575B66"
+              p-id="10902"
+            ></path>
+          </svg>
         </div>
       </div>
       {/* 主题文本区 */}
       <div className="h-40 text-gray-700">
-        <h2 className="text-lg text-black">关于废话文学用正常的文本来说</h2>
-        尊敬的用户您好，我们非常荣幸地向您宣布，我们的团队一直在不断努力，积极探索和研究最新的科技趋势和市场需求，以确保我们能够为您提供更加专业、高效、可靠的服务。我们深知客户是企业发展的根本，因此我们始终坚持以客户为中心，不断提升自身核心竞争力，为客户创造更多的价值和利益。在今后的合作中，我们将继续保持如此高度的责任心和敬业精神，与您共同开创美好的未来！
+        <h2 className="text-lg text-black">{props.title}</h2>
+        {props.context}
       </div>
       <div className="w-full flex justify-between ">
+
         <div className="w-auto flex ">
-          <div className="flex text-lg items-center w-12  ">
+          {/* 该文章点赞人数和 点赞svg */}
+          <div className="flex text-lg items-center w-12 " onClick={changeLike}>
             <div className="w-8 h-8 ">
               <svg
                 viewBox="0 0 1024 1024"
@@ -39,17 +81,17 @@ const HomeMassageCard = (props: Props) => {
               >
                 <path
                   d="M1020.377987 468.716066a84.323832 84.323832 0 0 0-53.615893-63.851873 150.6127 150.6127 0 0 0-48.741903-7.310985H660.175705c-11.210978 0-11.210978 0-9.748981-11.210978 5.361989-31.194938 9.748981-62.876875 16.084968-94.071812a237.859526 237.859526 0 0 0-4.87399-125.266751c-12.672975-37.043926-27.295946-73.112854-40.942919-109.669781a73.112854 73.112854 0 0 0-40.455919-45.32991 131.115739 131.115739 0 0 0-116.493768 3.412993 63.851873 63.851873 0 0 0-37.529925 61.413878c0 40.455919 0 80.911839 2.923994 121.367758a66.289868 66.289868 0 0 1-8.773982 37.043926c-31.194938 53.615893-53.615893 97.483806-86.272829 146.225709a349.966303 349.966303 0 0 1-32.169935 36.555927 93.096815 93.096815 0 0 0-35.58193 69.700861v453.299097a82.373836 82.373836 0 0 0 81.886837 82.861835h445.501113a240.78452 240.78452 0 0 0 75.549849-9.74898 116.005769 116.005769 0 0 0 83.347834-105.281791 133.065735 133.065735 0 0 0-6.335987-57.515885 12.672975 12.672975 0 0 1 2.436995-9.747981 129.165743 129.165743 0 0 0 28.757943-86.759827 141.839717 141.839717 0 0 0-7.798985-33.144934 13.647973 13.647973 0 0 1 0-14.622971 119.417762 119.417762 0 0 0 28.757943-78.961842 281.728439 281.728439 0 0 0-8.285984-41.917917v-10.235979a126.241749 126.241749 0 0 0 29.244942-61.414878V479.439045zM82.583855 438.983125h54.590892q82.373836 0 82.373836 82.373836v420.155163q0 82.373836-82.373836 82.373836h-54.589892q-82.374836 0-82.374835-82.373836V521.356961q0-82.373836 82.373835-82.373836z"
-                  fill="#c9c9c9"
+                  fill={`${like?" #F65D5D ":" #c9c9c9 "}`}
                   p-id="2912"
                 ></path>
               </svg>
             </div>
             <div className="w-6 h-6 flex items-center justify-center ml-2">
-              12
+              {props.like}
             </div>
           </div>
-
-          <div className="flex text-lg items-center w-12 ml-6 ">
+            {/* 该文章评论人数和 评论svg */}
+          <div className="flex text-lg items-center w-14 ml-6 " onClick={changeComment}>
             <div className="w-8 h-8 ">
               <svg
                 viewBox="0 0 1024 1024"
@@ -67,10 +109,13 @@ const HomeMassageCard = (props: Props) => {
                 ></path>
               </svg>
             </div>
-            <div className="w-6 h-6 flex items-center justify-center ">12</div>
+            <div className="w-6 h-6 flex items-center justify-center ml-2">
+              {" "}
+              {props.comment}
+            </div>
           </div>
-
-          <div className="flex text-lg items-center w-12  ml-6">
+            {/* 该文章已读人数和 已读svg */}
+          <div className="flex text-lg items-center w-14  ml-6">
             <div className="w-8 h-8 ">
               <svg
                 viewBox="0 0 1024 1024"
@@ -93,7 +138,9 @@ const HomeMassageCard = (props: Props) => {
                 ></path>
               </svg>
             </div>
-            <div className="w-6 h-6 flex items-center justify-center ">12</div>
+            <div className="w-6 h-6 flex items-center justify-center ml-2">
+              {props.readed}
+            </div>
           </div>
         </div>
 
@@ -116,6 +163,10 @@ const HomeMassageCard = (props: Props) => {
         </div>
       </div>
     </div>
+    {
+      comment?<HomeCommentCard/>:""
+    }
+    </>
   );
 };
 export default HomeMassageCard;
