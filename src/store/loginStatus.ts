@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-export const counterSlice = createSlice({
+//用于判断自动登入
+export const loginStatus = createSlice({
   name: 'loginStatus',
   initialState: {
     value: true,
   },
   reducers: {
+    
     turnOff: (state) => {
       state.value =false;
     },
@@ -16,6 +17,6 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { turnOff, turnOn  } = counterSlice.actions;
+export const { turnOff, turnOn  } = loginStatus.actions;
 export const selectLoginStatus=(state)=>state.loginStatus.value;
-export default counterSlice.reducer;
+export default loginStatus.reducer;

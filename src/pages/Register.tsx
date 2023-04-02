@@ -33,18 +33,18 @@ export default function Register() {
     }
   }, [confirmpassword, password]);
   //密码强度
-  useEffect(()=>{
-    let strength=getPasswordStrength(confirmpassword)
+  useEffect(() => {
+    let strength = getPasswordStrength(confirmpassword);
     setPasswordStrength(strength);
-    if(confirmpassword=='' || confirmpassword== null ){
+    if (confirmpassword == "" || confirmpassword == null) {
       setPasswordStrength(0);
     }
-  },[confirmpassword])
+  }, [confirmpassword]);
   return (
     <div className="w-screen h-screen  flex justify-center items-center ">
       <AnimateBackGround />
-      <div className="h-screen w-80  py-8 flex flex-col justify-around items-center absolute">
-        <h2 className="text-slate-200">欢迎你加入我们</h2>
+      <div className="animation_backGroundColor h-auto w-80  py-8 flex flex-col justify-around items-center absolute">
+        <h2 className="text-slate-200 p-4">欢迎你加入我们</h2>
         <div>
           <Yinput title="用户名" type="text" dataChange={getUserName} />
           <Yinput title="密码" type="password" dataChange={getPassword} />
@@ -53,16 +53,28 @@ export default function Register() {
             type="password"
             dataChange={getConfirmPassword}
           />
-          <div className="w-60 h-12  flex justify-around items-center">
-            <div className={`" w-16 h-3 " + ${passwrodStrength >=1 ?' bg-yellow-200 ':' bg-slate-500 '}`}></div>
-            <div className={`" w-16 h-3 " + ${passwrodStrength >=2 ?' bg-yellow-300 ':' bg-slate-500 '}`}></div>
-            <div className={`" w-16 h-3 " + ${passwrodStrength >=3 ?' bg-yellow-400 ':' bg-slate-500 '}`}></div>
+          <div className="w-60 h-12  flex justify-around items-center ">
+            <div
+              className={`" w-16 h-3 " + ${
+                passwrodStrength >= 1 ? " bg-yellow-200 " : " bg-slate-500 "
+              }`}
+            ></div>
+            <div
+              className={`" w-16 h-3 " + ${
+                passwrodStrength >= 2 ? " bg-yellow-300 " : " bg-slate-500 "
+              }`}
+            ></div>
+            <div
+              className={`" w-16 h-3 " + ${
+                passwrodStrength >= 3 ? " bg-yellow-400 " : " bg-slate-500 "
+              }`}
+            ></div>
             <div className="w-4 h-3 flex justify-center items-center text-white">
               <h2>强</h2>
             </div>
           </div>
         </div>
-        <div className="w-80 flex justify-center ">
+        <div className="w-80 flex justify-center p-4">
           <button
             className={`${
               confirm ? " bg-orange-300 " : " bg-orange-00 "

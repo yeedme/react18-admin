@@ -4,14 +4,16 @@ import AnimateBackGround from "../components/animation";
 import { useNavigate } from "react-router-dom";
 import { axiosGetLogin } from "../utils/http";
 import { message } from "antd";
-import { useDispatch, } from "react-redux";
+import { useDispatch } from "react-redux";
 import { turnOn } from "../store/loginStatus";
+import { setCookie } from "../utils/cookie";
+
 function Login() {
   const navigate = useNavigate();
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
   const [user, setUser] = useState("");
   const [passwords, setPasswords] = useState("");
-
+  const [autoLogin,setAutoLogin]=useState(false);
   //组件通信
   function getUser(data: string): void {
     setUser(data);
@@ -22,47 +24,51 @@ function Login() {
   }
   //模拟向后台验证数据
   const checkLogin = async (): Promise<void> => {
-    const data:any=await axiosGetLogin();
-    const {name,password}=data[0];
-    //登入成功跳转 并且将全局状态设置为true
-    if(user==name && password===passwords){
-      dispatch(turnOn);
-      navigate("/bashborad");
-    }else{
-      message.info("输入有误")
-    }
-    
-  }
-
-  function login(){
-  
-  } 
-
-  useEffect(()=>{
+    const data: any = await axiosGetLogin();
+    const { name, password } = data[0];
+    //登入成功跳转 判断是否开启自动状态 将全局状态设置为true
+    if (user == name && password === passwords) {
+      if(autoLogin){
+        dispatch(turnOn);
+        setCookie(user,true)
+      }
       
-  },[])
+      navigate("/dashboard");
+    } else {
+      message.info("输入有误");
+    }
+  };
+
+
   return (
     <div className="w-screen h-screen relative flex justify-center items-center">
       <AnimateBackGround />
-      <div className="h-screen w-80 py-8 flex flex-col justify-around items-center absolute">
+      <div className="h-auto w-80 py-8 flex flex-col justify-around items-center absolute  animation_backGroundColor">
         {/* ------登入欢迎语----- */}
-        <h2 className="text-slate-200">hi,欢迎来到yeedme</h2>
+        <h2 className="text-slate-200 py-8">hi,欢迎来到yeedme</h2>
         {/* ------登入组件----- */}
         <div>
           <Yinput title="用户名" type="text" dataChange={getUser} />
           <Yinput title="密码" type="password" dataChange={getPassword} />
           <div className="w-60 flex justify-between items-center mt-8">
-            <button 
-              onClick={()=>checkLogin()}
-            className="bg-orange-300 text-white w-24 h-12 shadow-3xl shadow-orange-200">
+            <button
+              onClick={() => checkLogin()}
+              className="bg-orange-300 text-white w-24 h-12 shadow-3xl shadow-orange-200"
+            >
               登入
             </button>
-            <h2
-              onClick={() => navigate("/register")}
-              className="text-slate-400 cursor-pointer"
-            >
-              注册
-            </h2>
+            <div>
+              <h2 className="text-slate-400 cursor-pointer">
+                <input type="checkbox" onClick={()=>setAutoLogin(autoLogin=>!autoLogin)}/>
+                自动登入
+              </h2>
+              <h2
+                onClick={() => navigate("/register")}
+                className="text-slate-400 cursor-pointer"
+              >
+                注册
+              </h2>
+            </div>
           </div>
         </div>
 

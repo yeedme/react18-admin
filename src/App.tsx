@@ -9,9 +9,7 @@ function App() {
   const navigate = useNavigate();
   let ls=useSelector(selectLoginStatus);
   const [loginStatus]=useState(ls)
-  useEffect(() => {
-
-    
+  useEffect(() => {    
     if(loginStatus){
       navigate("/dashboard");
       

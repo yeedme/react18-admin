@@ -4,8 +4,11 @@ import { SearchOutlined } from "@ant-design/icons";
 import { Dropdown, Space } from "antd";
 import { useDispatch } from "react-redux";
 import { turnOff } from "../../store/loginStatus";
+import { useNavigate } from "react-router-dom";
+import jazebelle from "../../assets/imgsvg/jazebelle.svg";
 function Banner() {
   const dispatch = useDispatch();
+  const navigate=useNavigate()
   const { Search } = Input;
   const items = [
     {
@@ -14,7 +17,7 @@ function Banner() {
     },
     {
       key: "2",
-      label: <p onClick={()=>{dispatch(turnOff);}}>登出</p>,
+      label: <p onClick={()=>{dispatch(turnOff),navigate('/login')}}>登出</p>,
     },
   ];
   return (
@@ -77,7 +80,7 @@ function Banner() {
               <div>
                 <Badge count={5} className="mx-5">
                   <Avatar
-                    src="https://joesch.moe/api/v1/random?key=1"
+                    src={jazebelle}
                     size={50}
                   />
                 </Badge>
