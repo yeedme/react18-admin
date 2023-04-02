@@ -13,7 +13,7 @@ function App() {
 
     
     if(loginStatus){
-      navigate("/home");
+      navigate("/dashboard");
       
     }else{
       navigate("/login");

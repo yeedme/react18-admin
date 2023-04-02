@@ -4,6 +4,12 @@ import { axiosGetChartOne } from "../utils/http";
 import Overview from "../components/echarts/Overview";
 import RadarChart from "../components/echarts/RadarChart";
 import CardAndCircle from "../components/CardAndCircle";
+import OrderList from "../components/OrderList";
+interface OrderListDataProps {
+  number: number;
+  transactionStatus: "completed" | "returnOfGoods" | "processing";
+  time: string;
+}
 export default function Dashboard() {
   const color = ["#ff7875", "#ffd666", "#743787", "#436b75"];
   const [chartDataOne, setChartDataOne] = useState<[] | null>(null);
@@ -26,6 +32,28 @@ export default function Dashboard() {
     let data: any = await axiosGetChartOne();
     setChartDataOne(data);
   };
+  const orderListData: OrderListDataProps[] = [
+    {
+      number: 1881.17,
+      transactionStatus: "completed",
+      time: "2027-07-08 13:23",
+    },
+    {
+      number: 7991.23,
+      transactionStatus: "returnOfGoods",
+      time: "2027-05-01 13:23",
+    },
+    {
+      number: 3341.5,
+      transactionStatus: "processing",
+      time: "2027-07-08 13:23",
+    },
+    {
+      number: 18263.1,
+      transactionStatus: "processing",
+      time: "2027-07-08 13:23",
+    },
+  ];
   useEffect(() => {
     getDataOne();
   }, []);
@@ -51,23 +79,34 @@ export default function Dashboard() {
         <div className=" md:col-span-3 h-60 ">
           <Overview />
         </div>
-        <div className=" md:col-span-1 md:row-span-2 bg-blue-100">
+        <div className=" md:col-span-1 md:row-span-2 bg-white p-2">
           <div className="w-full h-full">
-
             <div className="w-full h-80">
-            <RadarChart />
+              <RadarChart />
             </div>
-        
-          {
-            cardAndCircleData.map((t,index)=>{
+
+            {cardAndCircleData.map((t, index) => {
               return (
-                <CardAndCircle key={index} title={t.title} maxNum={t.maxNum} perecent={t.perecent} currentNum={t.currentNum}/>
-              )
-            })
-          }
-                </div>
+                <CardAndCircle
+                  key={index}
+                  title={t.title}
+                  maxNum={t.maxNum}
+                  perecent={t.perecent}
+                  currentNum={t.currentNum}
+                />
+              );
+            })}
+          </div>
         </div>
-        <div className="bg-blue-100 md:col-span-3">7</div>
+        <div className="bg-white md:col-span-3">
+          <div className="p-4 w-full flex justify-between">
+            <div>最近的订单</div>
+            <div>查看全部订单</div>
+          </div>
+          {orderListData.map((t, index) => {
+            return <OrderList {...t} key={index} />;
+          })}
+        </div>
       </div>
     </>
   );

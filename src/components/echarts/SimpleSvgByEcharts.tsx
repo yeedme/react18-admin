@@ -106,9 +106,9 @@ export default function SimpleSvgByEcharts(props: dataClass) {
     hoverCard();
   }, [open]);
   return (
-    <div className=" w-full h-full  flex justify-center">
+    <div className=" w-full h-full  flex justify-center ">
       <div
-       className="rounded-xl border-2 transition-all delay-150 w-9/12 h-40 rounded-md hover:w-full hover:h-full hover:bg-slate-900 hover:text-slate-50 overflow-hidden"
+       className="rounded-xl border-2 bg-white transition-all delay-150 w-9/12 h-40 rounded-md hover:w-full hover:h-full hover:bg-slate-900 hover:text-slate-50 overflow-hidden"
        onMouseOver={() => setOpen(true)}
        onMouseLeave={() => setOpen(false)}
       >

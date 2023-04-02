@@ -5,17 +5,17 @@ export default function RadarChart() {
   const DEFAULT_OPTIONS:EChartsOption = {
 
   legend: {
-    data: ['Allocated Budget', 'Actual Spending']
+    data: ['已分配预算', '实际花费']
   },
   radar: {
     // shape: 'circle',
     indicator: [
-      { name: 'Sales', max: 6500 },
-      { name: 'Administration', max: 16000 },
-      { name: 'Information Technology', max: 30000 },
-      { name: 'Customer Support', max: 38000 },
-      { name: 'Development', max: 52000 },
-      { name: 'Marketing', max: 25000 }
+      { name: '销售额', max: 6500 },
+      { name: '管理', max: 16000 },
+      { name: '信息技术', max: 30000 },
+      { name: '客户支持', max: 38000 },
+      { name: '发展', max: 52000 },
+      { name: '促销', max: 25000 }
     ]
   },
   series: [
@@ -25,11 +25,11 @@ export default function RadarChart() {
       data: [
         {
           value: [4200, 3000, 20000, 35000, 50000, 18000],
-          name: 'Allocated Budget'
+          name: '已分配预算'
         },
         {
           value: [5000, 14000, 28000, 26000, 42000, 21000],
-          name: 'Actual Spending'
+          name: '实际花费'
         }
       ]
     }

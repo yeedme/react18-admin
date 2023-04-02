@@ -15,7 +15,7 @@ const newRouter: RouteObject[] = [
         path: "/",
         element: <Layout />,
         children:[{
-            path:'bashborad',
+            path:'dashboard',
             element:<Dashboard/>
         },{
             path:"home",
