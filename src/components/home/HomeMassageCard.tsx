@@ -87,7 +87,7 @@ const HomeMassageCard = (props: Props) => {
               </svg>
             </div>
             <div className="w-6 h-6 flex items-center justify-center ml-2">
-              {props.like}
+              {props.like+Number(like)}
             </div>
           </div>
             {/* 该文章评论人数和 评论svg */}

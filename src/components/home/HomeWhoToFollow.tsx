@@ -42,6 +42,7 @@ const newData = [
 export default function HomeWhoToFollow() {
   const [initalDate, setInitalDate] = useState(inital);
   const [requstData,setRequstDate]=useState(false);
+  const [follow,setFollow]=useState(false);
   function updateData() {
     setInitalDate(() => [...inital, ...newData]);
   }
@@ -70,7 +71,7 @@ export default function HomeWhoToFollow() {
                 <h2 className="text-gray-500 text-sm">{t.emails}</h2>
               </div>
             </div>
-            <div className="flex items-center cursor-pointer">
+            <div className="flex items-center cursor-pointer" onClick={()=>setFollow(follow=>!follow)}>
               <span className="mr-2  text-gray-500">+</span>
               <span>Follow</span>
             </div>
