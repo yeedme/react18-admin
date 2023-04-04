@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import RouterElements from "./routers";
+import LazyRouterElements from "./routers";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectLoginStatus } from "./store/loginStatus";
@@ -11,7 +11,7 @@ function App() {
   const [loginStatus]=useState(ls)
   useEffect(() => {    
     if(loginStatus){
-      navigate("/home");
+      navigate("/order");
       
     }else{
       navigate("/login");
@@ -20,8 +20,7 @@ function App() {
   }, [loginStatus]);
   return (
     <>
-
-      <RouterElements />
+      <LazyRouterElements />
     </>
   );
 }

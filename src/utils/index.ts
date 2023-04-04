@@ -23,7 +23,18 @@ function getPasswordStrength(password:string) :number{
     return strength;
   }
 
-  export {getPasswordStrength}
+function changgeDateForm(dates:string){
+  const date = new Date(dates);
+  const year = date.getFullYear(); 
+  const month = date.getMonth() + 1; 
+  const day = date.getDate();
+  const hour = date.getHours(); 
+  const minute = date.getMinutes(); 
+  const result = `${year}年${month}月${day}日${hour}点${minute}分`;
+  return result
+ // 输出：x年x月x日x点x分
+}
+  export {getPasswordStrength,changgeDateForm}
 
   
   

@@ -70,7 +70,7 @@ function Home() {
   return (
     <>
       <div className="grid md:grid-cols-3 md:grid-row-1 gap-4 grid-row-3 grid-cols-1">
-        <div className="col-span-2 md:col-span-1 order-1 md:order-2 ">
+        <div className="md:col-span-2 col-span-1 order-2 md:order-2 ">
           <HomeBanner />
           {
             initial.map((t,index)=>{
@@ -82,7 +82,7 @@ function Home() {
          
 
         </div>
-        <div className="col-span-1  order-2 md:order-1">
+        <div className="col-span-1  md:order-2 order-1">
           <HomeWhoToFollow />
           <HomeTrendCard />
         </div>

@@ -1,26 +1,15 @@
 import { Avatar, Tag } from "antd";
-import React, { useState } from "react";
+import React from "react";
 import josh from "../assets/imgsvg/josh.svg";
-
+import SelectTag from "./SelectTag";
 
 type Props = {
     number:number,
     transactionStatus:"completed" | "returnOfGoods" | "processing",
     time:string
 };
-function SelectTag(str:"completed" | "returnOfGoods" | "processing"){
-   
-    if(str==="completed"){
-        return (<Tag color="blue">订单已完成</Tag>)
-    }
-    else if(str==="returnOfGoods"){
-        return (<Tag color="red">订单退货</Tag>)
-    }
-    else if(str==="processing"){
-        return (<Tag color="green">订单处理中</Tag>)
-    }
-    return (<Tag color="gray">数据错误</Tag>)
-}
+
+
 export default function OrderList(props: Props) {
   return (
     <>
