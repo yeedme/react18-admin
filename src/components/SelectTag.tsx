@@ -1,6 +1,6 @@
 import { Tag } from "antd";
 import React from "react";
-export default function SelectTag(str:"completed" | "returnOfGoods" | "processing"){
+export default function SelectTag(str:string){
    
     if(str==="completed"){
         return (<Tag color="blue">订单已完成</Tag>)

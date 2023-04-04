@@ -1,20 +1,21 @@
-const words = [
-  "spray",
-  "limit",
-  "elite",
-  "exuberant",
-  "destruction",
-  "present",
-];
+const t=[{
+  id:"1",
+  name:"oooo",
 
-const result = words.filter(
-  (word) =>{
-    if(word.length>6){
-      return true
+},{
+  id:2,
+  name:"oo"
+}]
+function ll(str){
+  return "long"
+}
+function tfilter(i){
+  let k=i.map((t)=>{
+    if(t.name.length>2){
+      return {...t,name:ll(t.name)}
     }
-    else {
-      return false
-    }
-  });
-
-console.log(result);
+    return t
+  })
+  console.log(k);
+}
+tfilter(t)

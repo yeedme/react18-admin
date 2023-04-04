@@ -8,6 +8,7 @@ interface Options {
   error: (error: AxiosError<any>) => void;
 }
 
+
 function axiosGet(options: Options) {
   axios
     .get(Url + options.url)
@@ -18,6 +19,8 @@ function axiosGet(options: Options) {
       options.error(err);
     });
 }
+
+
 //向后后台验证数据
 export function axiosGetLogin(){
   return new Promise((resolve,reject)=>{
@@ -34,6 +37,8 @@ export function axiosGetLogin(){
     })
   })
 }
+
+
 //获取bashboard chart类型一
 export function axiosGetChartOne(){
   return new Promise((resolve,reject)=>{
@@ -48,12 +53,37 @@ export function axiosGetChartOne(){
     })
   })
 }
+
+
 export function axiosGetoverviweData(){
   return new Promise((resolve,reject)=>{
     axiosGet({
       url:"/src/assets/overViewData.json",
       success(data) { 
         resolve(data);
+      },
+      error(error: AxiosError<any>) {    
+        reject(error);
+      },
+    })
+  })
+}
+export interface OrderDataType {
+  data: {
+    key: React.Key,
+    name: string,
+    date: string,
+    tradingStatus: string,
+    transactionAmount: number
+  };
+}
+
+export function axiosGetOrderData():Promise<OrderDataType[]>{
+  return new Promise((resolve,reject)=>{
+    axiosGet({
+      url:"/src/assets/order.json",
+      success(data) { 
+        resolve(data.data);
       },
       error(error: AxiosError<any>) {    
         reject(error);
