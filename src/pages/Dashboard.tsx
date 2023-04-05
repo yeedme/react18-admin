@@ -5,12 +5,15 @@ import Overview from "../components/echarts/Overview";
 import RadarChart from "../components/echarts/RadarChart";
 import CardAndCircle from "../components/CardAndCircle";
 import OrderList from "../components/OrderList";
+import { useNavigate } from "react-router-dom";
+
 interface OrderListDataProps {
   number: number;
   transactionStatus: "completed" | "returnOfGoods" | "processing";
   time: string;
 }
 export default function Dashboard() {
+  const navigate=useNavigate();
   const color = ["#ff7875", "#ffd666", "#743787", "#436b75"];
   const [chartDataOne, setChartDataOne] = useState<[] | null>(null);
   //偷个懒不用json数据
@@ -101,7 +104,7 @@ export default function Dashboard() {
         <div className="bg-white md:col-span-3">
           <div className="p-4 w-full flex justify-between">
             <div>最近的订单</div>
-            <div>查看全部订单</div>
+            <div onClick={()=>navigate('/order')} className="cursor-pointer">查看全部订单</div>
           </div>
           {orderListData.map((t, index) => {
             return <OrderList {...t} key={index} />;
