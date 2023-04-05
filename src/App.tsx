@@ -11,7 +11,7 @@ function App() {
   const [loginStatus]=useState(ls)
   useEffect(() => {    
     if(loginStatus){
-      navigate("/dashboard");
+      navigate("/dashboard ");
       
     }else{
       navigate("/login");

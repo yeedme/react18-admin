@@ -63,14 +63,14 @@ export default function Order() {
     ],
   };
   const [orderData, setOrderData] = useState<any>(null);
-
+// 过滤数据，好吧，其实也不是过滤，tradingStatus: string变成彩色标签
   function DataTypeFilter(data: DataType[]) {
     let newData = data.map((t) => {
       return { ...t, tradingStatus: SelectTag(t.tradingStatus) };
     });
     return newData;
   }
-
+  //获取数据 然后过滤数据 最后渲染数据 
   async function getData() {
     //待修复：完全搞不懂返回类型  const data:type?????=await axiosGetOrderData()
     let data: any = await axiosGetOrderData();
