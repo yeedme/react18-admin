@@ -18,5 +18,5 @@ export const loginStatus = createSlice({
 });
 
 export const { turnOff, turnOn  } = loginStatus.actions;
-export const selectLoginStatus=(state)=>state.loginStatus.value;
+export const selectLoginStatus=(state:any)=>state.loginStatus.value;
 export default loginStatus.reducer;
