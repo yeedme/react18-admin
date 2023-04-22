@@ -5,9 +5,12 @@ import { Dropdown, Space } from "antd";
 import { useDispatch } from "react-redux";
 import { turnOff } from "../../store/loginStatus";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { pagetitleStatus } from "../../store/pageTitle";
 import jazebelle from "../../assets/imgsvg/jazebelle.svg";
 function Banner() {
   const dispatch = useDispatch();
+  const pageTitle = useSelector(pagetitleStatus); 
   const navigate=useNavigate()
   const { Search } = Input;
   const items = [
@@ -21,9 +24,11 @@ function Banner() {
     },
   ];
   return (
+    <>
     <div className="w-screen h-20  fixed z-40 flex justify-between items-center border-b-2 bg-white">
       <div className="w-32 h-20 flex justify-between items-center">
-        <div className="w-8 h-8  flex justify-center items-center ml-2">
+        {/* 移动端导航栏 */}
+        <div className="w-8 h-8  flex justify-center items-center ml-2" >
           <svg
             viewBox="0 0 1024 1024"
             version="1.1"
@@ -58,7 +63,7 @@ function Banner() {
             ></path>
           </svg>
         </div>
-        <h2 className="md:text-2xl">title</h2>
+        <h2 className="text-md">{pageTitle}</h2>
       </div>
       <div className="flex justify-between items-center ">
         <div>
@@ -90,6 +95,7 @@ function Banner() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

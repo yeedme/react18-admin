@@ -107,7 +107,7 @@ export default function Overview() {
   }, []);
  
   return (
-    <div className="w-full h-full border-2 rounded-xl">
+    <div className="w-full h-full border-2 rounded-xl bg-white">
       <div className="flex justify-between px-4 pt-2">
         <h2>本季度数据总预览</h2>
         <Cascader

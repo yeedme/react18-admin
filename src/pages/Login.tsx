@@ -32,7 +32,6 @@ function Login() {
         dispatch(turnOn);
         setCookie(user,true)
       }
-      
       navigate("/dashboard");
     } else {
       message.info("输入有误");

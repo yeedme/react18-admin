@@ -8,7 +8,7 @@ interface Props {
 export default function OrderDraw(props: Props)  {
     useEffect(()=>{
 
-        console.log(props.orderId);
+        
         
     },[props.orderId])
   return (

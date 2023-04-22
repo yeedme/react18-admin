@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setTitle } from "../../store/pageTitle";
 const notSelectedColor = "white";
 const selectedColor = "black";
 const selectedColorBg = " bg-white ";
 const notSelectedColorBg = " bg-zinc-900 ";
-
+const titleArray=["数据面板","订单","消息页面","行程"]
 function Nav() {
   const navigate = useNavigate();
+  const dispatch = useDispatch()
   const [logoColor, setLogoColor] = useState<number>(1);
 
   const selectedELement = (index: number): void => {
     setLogoColor(index);
+    dispatch(setTitle(titleArray[index-1]))
   };
-  useEffect(() => {}, [logoColor]);
+  useEffect(()=>{
+    selectedELement(1)
+  },[])
   //待优化：map遍历生成Nav ,但是svg样式问题在map下不好解决
   return (
     //  NAV

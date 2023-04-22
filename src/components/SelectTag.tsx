@@ -1,5 +1,6 @@
 import { Tag } from "antd";
 import React from "react";
+//生成标签组件
 export default function SelectTag(str:string){
    
     if(str==="completed"){

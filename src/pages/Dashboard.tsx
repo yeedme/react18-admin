@@ -63,7 +63,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <div className="md:w-128 grid grid-cols-1 grid-rows-7 md:grid-cols-4 md:grid-rows-3 gap-4 max-w-screen-2xl">
+      <div className="md:w-128 grid grid-cols-1 grid-rows-7 md:grid-cols-4 md:grid-rows-3 gap-4 max-w-screen-2xl bg-gray-100">
         {chartDataOne != null
           ? chartDataOne.map((t: any, index) => {
               return (

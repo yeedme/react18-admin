@@ -14,14 +14,14 @@ function App() {
       navigate("/dashboard ");
       
     }else{
-      navigate("/login");
+      navigate("/dashboard");
     }
      
   }, [loginStatus]);
   return (
-    <>
+
       <LazyRouterElements />
-    </>
+
   );
 }
 
