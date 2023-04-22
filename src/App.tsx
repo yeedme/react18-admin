@@ -14,7 +14,7 @@ function App() {
       navigate("/dashboard ");
       
     }else{
-      navigate("/dashboard");
+      navigate("/login");
     }
      
   }, [loginStatus]);

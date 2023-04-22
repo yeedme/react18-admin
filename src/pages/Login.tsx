@@ -37,7 +37,10 @@ function Login() {
       message.info("输入有误");
     }
   };
-
+  useEffect(()=>{
+    setUser("admin");
+    setPasswords("admin")
+  },[])
 
   return (
     <div className="w-screen h-screen relative flex justify-center items-center">
@@ -47,8 +50,8 @@ function Login() {
         <h2 className="text-slate-200 py-8">hi,欢迎来到yeedme</h2>
         {/* ------登入组件----- */}
         <div>
-          <Yinput title="用户名" type="text" dataChange={getUser} />
-          <Yinput title="密码" type="password" dataChange={getPassword} />
+          <Yinput title="用户名" type="text" dataChange={getUser} defalutValue="admin"/>
+          <Yinput title="密码" type="password" dataChange={getPassword} defalutValue="admin"/>
           <div className="w-60 flex justify-between items-center mt-8">
             <button
               onClick={() => checkLogin()}
