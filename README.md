@@ -11,16 +11,16 @@
 git clone https://github.com/yeedme/react18-admin.git
 ```
 
- 切换目录
+ -切换目录
 
 ```bash
 cd react18-admin
 ```
-项目初始化
+-项目初始化
 ```bash
 npm i 
 ```
-启动项目
+-启动项目
 ```bash
 npm run dev
 ```
