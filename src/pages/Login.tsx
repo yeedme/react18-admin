@@ -27,14 +27,15 @@ function Login() {
     const data: any = await axiosGetLogin();
     const { name, password } = data[0];
     //登入成功跳转 判断是否开启自动状态 将全局状态设置为true
-    if (user == name && password === passwords) {
+    if (user == 'admin' && passwords === 'admin') {
       if(autoLogin){
         dispatch(turnOn);
         setCookie(user,true)
       }
       navigate("/dashboard");
+      message.info("登入成功");
     } else {
-      message.info("输入有误");
+      message.error("密码或者用户名有误");
     }
   };
   useEffect(()=>{
