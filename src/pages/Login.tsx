@@ -11,8 +11,8 @@ import { setCookie } from "../utils/cookie";
 function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [user, setUser] = useState("");
-  const [passwords, setPasswords] = useState("");
+  const [user, setUser] = useState("admin");
+  const [passwords, setPasswords] = useState("admin");
   const [autoLogin,setAutoLogin]=useState(false);
   //组件通信
   function getUser(data: string): void {
@@ -24,8 +24,8 @@ function Login() {
   }
   //模拟向后台验证数据
   const checkLogin = async (): Promise<void> => {
-    const data: any = await axiosGetLogin();
-    const { name, password } = data[0];
+    // const data: any = await axiosGetLogin();
+    // const { name, password } = data[0];
     //登入成功跳转 判断是否开启自动状态 将全局状态设置为true
     if (user == 'admin' && passwords === 'admin') {
       if(autoLogin){
@@ -38,10 +38,7 @@ function Login() {
       message.error("密码或者用户名有误");
     }
   };
-  useEffect(()=>{
-    setUser("admin");
-    setPasswords("admin")
-  },[])
+
 
   return (
     <div className="w-screen h-screen relative flex justify-center items-center">
